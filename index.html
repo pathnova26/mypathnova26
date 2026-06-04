@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Discover Your Future Path</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #1e1b4b 0%, #070f2b 60%, #020617 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .brand-icon {
+            background: #4f46e5;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Hero Header Section */
+        .hero-banner {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .text-glow {
+            display: block;
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .section-divider {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6366f1;
+            margin-bottom: 30px;
+        }
+
+        /* Streams Grid System */
+        .streams-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stream-box {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .stream-box:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(30, 41, 59, 0.4);
+        }
+        .stream-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .stream-info {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        .action-arrow {
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .action-arrow:hover {
+            color: #818cf8;
+        }
+
+        /* Large Feature Component */
+        .master-feature-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .master-feature-card { grid-template-columns: 1fr; }
+        }
+        .alert-badge {
+            display: inline-block;
+            background: rgba(13, 148, 136, 0.15);
+            color: #2dd4bf;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .feature-heading {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .feature-para {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .pill {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 6px;
+        }
+        .teal-link {
+            color: #2dd4bf;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Metrics Display Grid */
+        .grid-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .metric-cell {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stat-count {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .coral-text { color: #f87171; }
+        .blue-text { color: #60a5fa; }
+        .purple-text { color: #c084fc; }
+        .teal-text { color: #2dd4bf; }
+        .stat-label {
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.3;
+        }
+
+        /* Twin Block Columns Layout */
+        .twin-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .col-card {
+            background: rgba(30, 41, 59, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 25px;
+        }
+        .purple-badge {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .pink-badge {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            color: #f472b6;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        /* Stacked List Entries */
+        .list-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .stack-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        /* Footer Promo Strip */
+        .footer-promo {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 20px 25px;
+        }
+        .orange-badge {
+            display: inline-block;
+            background: rgba(249, 115, 22, 0.15);
+            color: #fb923c;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .promo-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Entrance Exams</title>
+    </head>
+
+<body> <style>
+        .global-nav-container { margin: 0; padding: 0; box-sizing: border-box; }
+        .pnova-navbar { background-color: #0b0f19; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 9999; }
+        .pnova-logo-wrapper { display: flex; align-items: center; text-decoration: none; }
+        .pnova-logo-img { height: 48px; width: auto; object-fit: contain; display: block; }
+        .pnova-nav-links { display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; padding-left: 10px; -webkit-overflow-scrolling: touch; }
+        .pnova-nav-links::-webkit-scrollbar { display: none; }
+        .pnova-nav-item { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 4px; transition: all 0.2s ease; }
+        .pnova-nav-item:hover, .pnova-nav-item.active { color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    </style>
+
+    <div class="global-nav-container">
+        <nav class="pnova-navbar">
+            <a href="index.html" class="pnova-logo-wrapper">
+                <img src="logo.png" alt="PathNova Logo" class="pnova-logo-img">
+            </a>
+            <div class="pnova-nav-links">
+                <a href="index.html" class="pnova-nav-item">Home</a>
+                <a href="entranceexam.html" class="pnova-nav-item">Exams</a>
+                <a href="science.html" class="pnova-nav-item">Science</a>
+                <a href="commerce.html" class="pnova-nav-item">Commerce</a>
+                <a href="arts.html" class="pnova-nav-item">Arts</a>
+                <a href="class10.html" class="pnova-nav-item">Class 10</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        </div>
+
+</body>
+</html>
+
+    <div class="main-wrapper">
+        <div class="container">
+            
+            <!-- Navbar Header -->
+            <div class="navbar">
+                <div class="brand-logo">
+                    <span class="brand-icon">P</span>PathNova
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="studysmart.html" class="nav-link">Study Smart</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="commerce.html" class="nav-link">Commerce</a>
+                    <a href="arts.html" class="nav-link">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="class10.html" class="nav-link">Class 10</a>
+                    <a href="forparent.html" class="nav-link">For Parents</a>
+                    <a href="entranceexam.html" class="nav-link">Entrance Exams</a>
+                </div>
+            </div>
+
+            <!-- Hero Section Intro -->
+            <div class="hero-banner">
+                <h1 class="hero-title">
+                    Discover Your
+                    <span class="text-glow">Future Path</span>
+                </h1>
+                <p class="hero-desc">
+                    Understand the reality before choosing your stream. The honest, supportive guide every Class 9 student needs to navigate the biggest choice of their academic life.
+                </p>
+            </div>
+
+            <div class="section-divider">Choose a stream to explore</div>
+
+            <!-- Streams 3 Column Layout -->
+            <div class="streams-container">
+                <div class="stream-box">
+                    <div>
+                        <h3 class="stream-name">Science</h3>
+                        <p class="stream-info">Physics, Chemistry, Maths, Biology. Analytical thinking, deep conceptual understanding, and consistent daily effort.</p>
+                    </div>
+                    <a href="science.html" class="your-button-class">Explore Reality &rarr;</a>
+                </div>
+                <div class="stream-box">
+                    <div>
+                        <h3 class="stream-name">Commerce</h3>
+                        <p class="stream-info">Accountancy, Economics, Business Studies. Understanding how money, markets, and organizations actually work.</p>
+                    </div>
+                    <a href="commerce.html" class="action-arrow">Explore Reality &rarr;</a>
+                </div>
+                <div class="stream-box">
+                    <div>
+                        <h3 class="stream-name">Arts / Humanities</h3>
+                        <p class="stream-info">History, Geography, Political Science, Psychology and more. Critical thinking, reading, and understanding society deeply.</p>
+                    </div>
+                    <a href="arts.html" class="action-arrow">Explore Reality &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Main Interactive Analytics Block -->
+            <div class="master-feature-card">
+                <div>
+                    <div class="alert-badge">&#10034; Most Important — Read This First</div>
+                    <h2 class="feature-heading">Study Smart, Stay Healthy</h2>
+                    <p class="feature-para">
+                        The brain science behind why exam stress physically damages your memory, the three study techniques that actually work, what to eat, and 30-minute movement routines that change how your brain learns.
+                    </p>
+                    <div class="pill-row">
+                        <span class="pill">&#9788; Brain Science</span>
+                        <span class="pill">&#8635; Spaced Repetition</span>
+                        <span class="pill">&#9788; Brain Foods</span>
+                        <span class="pill">&#128168; Box Breathing</span>
+                    </div>
+                    <a href="studysmart.html" class="teal-link">Read the full guide &rarr;</a>
+                </div>
+                
+                <div class="grid-metrics">
+                    <div class="metric-cell">
+                        <div class="stat-count coral-text">6</div>
+                        <div class="stat-label">Brain impacts of stress</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="stat-count blue-text">3</div>
+                        <div class="stat-label">Proven study techniques</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="stat-count purple-text">5</div>
+                        <div class="stat-label">Digital tool categories</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="stat-count teal-text">4</div>
+                        <div class="stat-label">Exercise routines</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Sub-Topic Cards Split -->
+            <div class="twin-columns">
+                <div class="col-card">
+                    <div class="purple-badge">&#129516; All streams & classes</div>
+                    <h3 class="stream-name" style="font-size: 18px;">How to Actually Self-Study</h3>
+                    <p class="stream-info" style="font-size: 13.5px;">
+                        Read NCERT 3 times, rough notebook recall, star-rating questions, revising in reverse. The method no coaching institute teaches.
+                    </p>
+                    <div class="list-stack">
+                        <div class="stack-item">&#128214; 3-read NCERT</div>
+                        <div class="stack-item">&#128221; Rough notebook</div>
+                        <div class="stack-item">&#11088; Star-rating</div>
+                        <div class="stack-item">&#128451; Reverse revision</div>
+                    </div>
+                    <a href="howtostudy.html" class="action-arrow" style="color: #c084fc;">Read the full guide &rarr;</a>
+                </div>
+
+                <div class="col-card">
+                    <div class="pink-badge">&#128143; Class 10 students</div>
+                    <h3 class="stream-name" style="font-size: 18px;">Class 10 Board — The Real Picture</h3>
+                    <p class="stream-info" style="font-size: 13.5px;">
+                        What your marks actually mean, why you don't need coaching, and why your mental and physical health matters more than any result.
+                    </p>
+                    <div class="list-stack">
+                        <div class="stack-item">&#128201; Marks reality</div>
+                        <div class="stack-item">&#128683; No coaching needed</div>
+                        <div class="stack-item">&#129504; Mental health</div>
+                        <div class="stack-item">&#128170; Physical health</div>
+                    </div>
+                    <a href="class10.html" class="action-arrow" style="color: #f472b6;">Read the full guide &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Bottom Content Bar -->
+            <div class="footer-promo">
+                <div class="orange-badge">&#128106; For Parents</div>
+                <div class="promo-text">Why Sending a 15-Year-Old to Kota is Not the Answer...</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
