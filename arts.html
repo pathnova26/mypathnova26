@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts & Humanities - PathNova</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #0b153a 0%, #070f2b 60%, #030712 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Navbar Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .brand-icon {
+            background: #4f46e5;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Stream Header Hero */
+        .stream-hero {
+            margin-bottom: 35px;
+        }
+        .stream-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .stream-tagline {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        /* Difficulty & Competition Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: rgba(30, 41, 59, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .rating-stars {
+            font-size: 18px;
+            color: #c084fc;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .rating-value {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        .stat-desc {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* Standard Segment Blocks */
+        .section-box {
+            margin-bottom: 45px;
+        }
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section-badge.purple-variant {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+        }
+        .section-badge.pink-variant {
+            background: rgba(236, 72, 153, 0.15);
+            color: #f472b6;
+        }
+        .section-heading {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Detail Rows inside Content Container */
+        .detail-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .detail-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+        .detail-card-body {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .detail-card-body ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .detail-card-body li {
+            margin-bottom: 8px;
+        }
+
+        /* Horizontal Tag Pills */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag-element {
+            background: rgba(147, 51, 234, 0.15);
+            color: #c084fc;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .tag-element.blue-pill {
+            background: rgba(59, 130, 246, 0.12);
+            color: #60a5fa;
+        }
+        .tag-element.cyan-pill {
+            background: rgba(6, 182, 212, 0.12);
+            color: #22d3ee;
+        }
+
+        /* Critical Warning Boxes */
+        .warning-strip {
+            background: rgba(245, 158, 11, 0.07);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .warning-text {
+            color: #cbd5e1;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        /* Typical Week Layout Matrices */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .day-block {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .day-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 6px;
+        }
+        .day-schedule {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Locked Footer Section */
+        .locked-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            margin-top: 50px;
+            padding-bottom: 40px;
+        }
+        .lock-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        .lock-message {
+            font-size: 13px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Entrance Exams</title>
+    </head>
+
+<body> <style>
+        .global-nav-container { margin: 0; padding: 0; box-sizing: border-box; }
+        .pnova-navbar { background-color: #0b0f19; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 9999; }
+        .pnova-logo-wrapper { display: flex; align-items: center; text-decoration: none; }
+        .pnova-logo-img { height: 48px; width: auto; object-fit: contain; display: block; }
+        .pnova-nav-links { display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; padding-left: 10px; -webkit-overflow-scrolling: touch; }
+        .pnova-nav-links::-webkit-scrollbar { display: none; }
+        .pnova-nav-item { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 4px; transition: all 0.2s ease; }
+        .pnova-nav-item:hover, .pnova-nav-item.active { color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    </style>
+
+    <div class="global-nav-container">
+        <nav class="pnova-navbar">
+            <a href="index.html" class="pnova-logo-wrapper">
+                <img src="logo.png" alt="PathNova Logo" class="pnova-logo-img">
+            </a>
+            <div class="pnova-nav-links">
+                <a href="index.html" class="pnova-nav-item">Home</a>
+                <a href="entranceexam.html" class="pnova-nav-item">Exams</a>
+                <a href="science.html" class="pnova-nav-item">Science</a>
+                <a href="commerce.html" class="pnova-nav-item">Commerce</a>
+                <a href="arts.html" class="pnova-nav-item">Arts</a>
+                <a href="class10.html" class="pnova-nav-item">Class 10</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        </div>
+
+</body>
+</html>
+
+    <div class="main-wrapper">
+        <div class="container">
+            
+            <div class="navbar">
+                <div class="brand-logo">
+                    <span class="brand-icon">P</span>PathNova
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Study Smart</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="commerce.html" class="nav-link">Commerce</a>
+                    <a href="#" class="nav-link active">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="#" class="nav-link">Class 10</a>
+                    <a href="#" class="nav-link">For Parents</a>
+                    <a href="#" class="nav-link">Entrance Exams</a>
+                </div>
+            </div>
+
+            <div class="stream-hero">
+                <h1 class="stream-title">Arts & Humanities</h1>
+                <p class="stream-tagline">The study of people, society, culture, history, and the world we live in.</p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-title">Academic Difficulty</div>
+                    <div class="rating-stars">
+                        &#9733;&#9733;&#9733;&#9734;&#9734; <span class="rating-value">3/5</span>
+                    </div>
+                    <div class="stat-desc">Vast syllabus — requires reading, writing, and real understanding.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Competition Level</div>
+                    <div class="rating-stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9734; <span class="rating-value">4/5</span>
+                    </div>
+                    <div class="stat-desc">High for premium government and professional courses.</div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge">Class 9 & 10</div>
+                <h2 class="section-heading">Know Your Stream First</h2>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🌐 What You Will Study</div>
+                    <div class="detail-card-body">
+                        History, Geography, Political Science, Economics, Sociology, Psychology, Philosophy, English Literature — and more, depending on what you choose. Unlike Science or Commerce, Arts gives you the freedom to pick subjects based on what genuinely interests you. Every subject is about understanding human beings — their past, societies, minds, and choices.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">⏱️ How Much You Need to Study</div>
+                    <div class="detail-card-body">
+                        Expect 2–4 hours of focused self-study daily. But you need to actually read and think, not just scan notes. Arts rewards students who read widely, beyond just the textbook. Answer-writing and expression matter more here than speed or formula recall.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">📖 The Big Difference from Class 10</div>
+                    <div class="detail-card-body">
+                        In Class 10 Social Science, you touched on History, Geography, Civics, and Economics as one combined subject. In Class 11 Humanities, each becomes a full subject with a much deeper syllabus. You are expected to think critically, give structured arguments, and show genuine understanding — not just write points from memory.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💡 What Kind of Student Thrives Here</div>
+                    <div class="detail-card-body">
+                        <div class="tag-group" style="margin-top: 0;">
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Loves reading and writing</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Curious about society and people</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Thinks in arguments, not formulas</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Expressive and articulate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-strip">
+                    <div class="warning-title">⚠️ Honest Reality</div>
+                    <div class="warning-text">
+                        Arts is not the "easy stream" — it is simply a different kind of hard. The syllabus is vast, and writing quality matters enormously in exams. Many students who do not enjoy reading struggle here despite studying for hours. Ignore the stereotype that Arts is for weak students. That is outdated and wrong.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge purple-variant">&#9734; Opportunities Students Should Know Early</div>
+                <p style="color: #64748b; font-size: 13.5px; margin-top: -15px; margin-bottom: 20px;">These are not mandatory — but students who do them early build a profile that opens doors others don't even know exist.</p>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🛡️ NCC (National Cadet Corps)</div>
+                    <div class="detail-card-body">
+                        NCC is especially powerful for Humanities students who aspire toward civil services, defence, or public administration. It builds the discipline, physical fitness, and leadership that UPSC boards and defence boards actively look for. An NCC C certificate can directly affect merit-based selections.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Civil services profile</span>
+                            <span class="tag-element blue-pill">Defence advantage</span>
+                            <span class="tag-element blue-pill">Leadership record</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🏆 Regional / National Representation</div>
+                    <div class="detail-card-body">
+                        Law schools, journalism institutes, and social science programs heavily weight extracurricular achievement. Representing your school in debate, sports, cultural events, or model conferences shows initiative. It also gives you real stories to tell in personal interviews and SOPs.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Law school edge</span>
+                            <span class="tag-element blue-pill">SOP material</span>
+                            <span class="tag-element blue-pill">Interview confidence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🗣️ Debate / MUN / Public Speaking</div>
+                    <div class="detail-card-body">
+                        This is the single most valuable activity for a Humanities student. MUN teaches diplomatic negotiation, structured argumentation, and poise under pressure. Debate sharpens your thinking and writing. These are not soft hobbies — they are direct preparation for law, journalism, UPSC, and management.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">UPSC prep</span>
+                            <span class="tag-element blue-pill">Law interviews</span>
+                            <span class="tag-element blue-pill">MUN leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🏛️ Social Science Projects & Cultural Competitions</div>
+                    <div class="detail-card-body">
+                        Heritage club, history projects, school magazine editorials, art exhibitions — Humanities students have access to competitions that Science students often ignore. These build a creative, intellectual portfolio that premium colleges in social sciences and design actively seek.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Portfolio building</span>
+                            <span class="tag-element blue-pill">Design college prep</span>
+                            <span class="tag-element blue-pill">Intellectual profile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">📝 Writing / Blogging / Digital Skills</div>
+                    <div class="detail-card-body">
+                        Journalism, content creation, policy writing, and law are increasingly digital. Learning to write clearly and consistently — a blog, articles, or even social media writing on issues you care about — demonstrates passion and communication ability. Many journalism and media colleges ask for writing samples.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Media portfolios</span>
+                            <span class="tag-element blue-pill">Journalism prep</span>
+                            <span class="tag-element blue-pill">Communication record</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge pink-variant">Class 11 & 12</div>
+                <h2 class="section-heading">What These Two Years Actually Look Like</h2>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💎 Subject Combinations</div>
+                    <div class="detail-card-body">
+                        Arts gives you the most flexibility of any stream. You choose 5 subjects from a wide menu:
+                        <ul style="list-style-type: none; padding-left: 0; margin-top: 15px;">
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">Common Core Subjects</strong>
+                                History, Geography, Political Science, Economics, English Core. Most students take 3–4 of these as their main subjects.
+                            </li>
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">Elective Options</strong>
+                                Sociology, Psychology, Philosophy, Fine Arts, Music, Physical Education, Legal Studies, Computer Science. Choose what genuinely interests you — these electives can shape your college path.
+                            </li>
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">Can You Take Maths in Arts?</strong>
+                                Yes. Applied Maths is available as an elective in many schools under the Humanities stream. It is different from Science Maths — more statistics-focused. Worth considering if you want options in social research or economics later.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">👥 School vs. Coaching — The Real Story</div>
+                    <div class="detail-card-body">
+                        Arts is the stream where school matters most and coaching is least critical. But here is what you should know:
+                        <ul>
+                            <li>Good teachers make an enormous difference in Humanities. A teacher who explains History through stories, not just dates, changes how you absorb the subject.</li>
+                            <li>Answer-writing coaching is genuinely helpful. Many students know the content but score poorly because they don't structure answers. Practice with model answers from CBSE toppers.</li>
+                            <li>NCERT textbooks for Humanities are exceptionally well-written. They are not just board-exam material — they are genuinely worth reading. Don't treat them like rote-learning targets.</li>
+                            <li>If you want to crack CUET for top DU colleges, specific CUET coaching is helpful in Class 12. It is a separate exam from boards and needs separate preparation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">📊 Board Exam Pattern (CBSE)</div>
+                    <div class="detail-card-body">
+                        <ul>
+                            <li>Each subject is 80 marks written + 20 marks internal (projects, presentations, assignments). Total: 100 marks.</li>
+                            <li>Questions range from 1-mark source-based to 6-mark long answers. Long answers need clear structure: introduction, body points, conclusion. Headings and subheadings help examiners — use them.</li>
+                            <li>Internals and projects (20 marks) are extremely important. History and Geography projects are graded seriously. Research them properly — they also deepen your subject understanding.</li>
+                            <li>Map work in Geography carries guaranteed marks. Practice all prescribed maps. This is one of the most reliable score boosters in the entire stream.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">⏳ What a Typical Week Looks Like</div>
+                    <div class="detail-card-body">
+                        <div class="week-grid">
+                            <div class="day-block">
+                                <div class="day-title">Monday – Friday</div>
+                                <div class="day-schedule">School (6–7 hrs) &rarr; Self-study (1.5–2.5 hrs). Read chapters, not just notes. Write at least one full answer per day for practice. This builds the habit your exam depends on.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Saturday</div>
+                                <div class="day-schedule">Current affairs reading and revision of the week's topics. Humanities students benefit enormously from staying aware of what's happening in the world — it enriches every subject.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Sunday</div>
+                                <div class="day-schedule">Answer writing practice. Take one previous year question and write a full timed answer. Check against the marking scheme. This is the most high-leverage habit in this stream.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Exam Season</div>
+                                <div class="day-schedule">Focus on consolidation — not new reading. Revise key dates, facts, maps, and definitions. Write as many previous year answers as possible. Presentation wins marks here.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💡 Things That Actually Help</div>
+                    <div class="detail-card-body">
+                        <div class="tag-group" style="margin-top: 0;">
+                            <span class="tag-element cyan-pill">Read NCERT cover to cover — it is excellent</span>
+                            <span class="tag-element cyan-pill">Write one full answer every day</span>
+                            <span class="tag-element cyan-pill">Maps in Geography = guaranteed marks</span>
+                            <span class="tag-element cyan-pill">Read a newspaper — not just for exams</span>
+                            <span class="tag-element cyan-pill">Structure every long answer with headings</span>
+                            <span class="tag-element cyan-pill">Debate and MUN sharpen your thinking directly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-strip" style="background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.15);">
+                    <div class="warning-title" style="color: #f87171;">⚠️ The Biggest Mistake Arts Students Make</div>
+                    <div class="warning-text">
+                        Leaving answer-writing practice for the last few weeks before boards. In Humanities, writing is the skill — and like any skill, it needs months of practice to become fluent. Students who score 95%+ in this stream all have one thing in common: they write regularly, not just read.
+                    </div>
+                </div>
+            </div>
+
+            <div class="locked-footer">
+                <div class="lock-badge">🔒 After Class 12</div>
+                <div class="lock-message">Content coming soon — entrance exams, colleges, and paths ahead.</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

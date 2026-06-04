@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Smart, Stay Healthy - PathNova</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #0b153a 0%, #070f2b 60%, #030712 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Shared Navigation Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .brand-icon {
+            background: #4f46e5;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Hero Header Element */
+        .page-hero {
+            margin-bottom: 40px;
+        }
+        .meta-tag {
+            display: inline-block;
+            background: rgba(20, 184, 166, 0.15);
+            color: #2dd4bf;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        .main-title span {
+            display: block;
+            background: linear-gradient(to right, #38bdf8, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 700px;
+        }
+
+        /* Layout Block Structures */
+        .content-section {
+            margin-bottom: 50px;
+        }
+        .section-badge {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .section-badge.blue-theme {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+        .section-badge.green-theme {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+        .section-badge.teal-theme {
+            background: rgba(20, 184, 166, 0.15);
+            color: #2dd4bf;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        /* The Stress Cascade Flowchart Visual Component */
+        .cascade-box {
+            background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .cascade-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        .cascade-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .flow-node {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        .flow-arrow {
+            font-size: 11px;
+            color: #475569;
+        }
+
+        /* Detail List Row Blocks */
+        .info-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+        .info-icon-area {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .info-content {
+            flex-grow: 1;
+        }
+        .info-header {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #e2e8f0;
+        }
+        .info-header span {
+            color: #64748b;
+            font-size: 13px;
+            margin-right: 6px;
+        }
+        .info-body {
+            color: #94a3b8;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        /* Memory Graph Component style blocks */
+        .graph-container {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .graph-label {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .graph-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        .graph-day {
+            width: 50px;
+            color: #94a3b8;
+        }
+        .graph-track {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
+            height: 16px;
+            position: relative;
+            margin-right: 12px;
+        }
+        .graph-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-weight: 700;
+            color: #070f2b;
+        }
+        .graph-action {
+            width: 55px;
+            color: #2dd4bf;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* Shared Inner Matrix Grids */
+        .inner-grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .inner-grid-3col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .grid-card {
+            background: rgba(30, 41, 59, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .grid-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .grid-card-subtitle {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .grid-card-list {
+            list-style: none;
+            font-size: 12.5px;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+        .grid-card-list li {
+            margin-bottom: 6px;
+            padding-left: 12px;
+            position: relative;
+        }
+        .grid-card-list li::before {
+            content: "•";
+            color: #ef4444;
+            position: absolute;
+            left: 0;
+        }
+        .blue-theme .grid-card-list li::before { color: #3b82f6; }
+        .green-theme .grid-card-list li::before { color: #10b981; }
+
+        .grid-card-footer {
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 10px;
+        }
+
+        /* Food and Exercise Visual Blocks */
+        .nested-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2dd4bf;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+        .nested-header.yellow-sub { color: #fbbf24; }
+        .nested-header.red-sub { color: #f87171; }
+
+        .food-item-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+        .food-item-meta {
+            font-size: 11px;
+            color: #34d399;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .food-item-meta.orange-meta { color: #fbbf24; }
+
+        /* Yoga Vector Box Simulators */
+        .yoga-flex-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+        }
+        .yoga-card {
+            background: rgba(30, 41, 59, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .yoga-canvas {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        /* Custom Abstract Minimal Outlines for Yoga graphics */
+        .shape-childspose {
+            width: 80px;
+            height: 30px;
+            border: 4px solid #a855f7;
+            border-radius: 40px 10px 10px 40px;
+            transform: rotate(-5deg);
+            opacity: 0.7;
+        }
+        .shape-catcow {
+            width: 90px;
+            height: 45px;
+            border-top: 4px solid #10b981;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            opacity: 0.7;
+        }
+        .shape-catcow::before, .shape-catcow::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            background: #10b981;
+            bottom: -20px;
+        }
+        .shape-catcow::before { left: 10px; }
+        .shape-catcow::after { right: 10px; }
+
+        /* Box Breathing Graphical Visualizer */
+        .breath-wrapper {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            background: rgba(15, 23, 42, 0.3);
+            padding: 25px;
+            border-radius: 10px;
+            align-items: center;
+        }
+        .breath-square-box {
+            width: 180px;
+            height: 180px;
+            border: 3px dashed rgba(56, 189, 248, 0.4);
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .breath-center-txt {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e2e8f0;
+            text-align: center;
+        }
+        .dir-label {
+            position: absolute;
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .dir-top { top: -22px; width: 100%; text-align: center; }
+        .dir-right { right: -50px; transform: rotate(90deg); }
+        .dir-bottom { bottom: -22px; width: 100%; text-align: center; }
+        .dir-left { left: -50px; transform: rotate(-90deg); }
+
+        .breath-steps-list {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .breath-step-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 12.5px;
+        }
+        .b-step-lbl { font-weight: 600; display: flex; align-items: center; gap: 8px;}
+        .b-step-lbl.in { color: #38bdf8; }
+        .b-step-lbl.hd { color: #c084fc; }
+        .b-step-lbl.ex { color: #34d399; }
+        .b-step-lbl.h2 { color: #fbbf24; }
+
+        /* The Checklist Minimum Layout */
+        .checklist-container {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .checklist-title-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+        .checklist-item {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+        }
+        .check-bullet-icon {
+            color: #38bdf8;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Entrance Exams</title>
+    </head>
+
+<body> <style>
+        .global-nav-container { margin: 0; padding: 0; box-sizing: border-box; }
+        .pnova-navbar { background-color: #0b0f19; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 9999; }
+        .pnova-logo-wrapper { display: flex; align-items: center; text-decoration: none; }
+        .pnova-logo-img { height: 48px; width: auto; object-fit: contain; display: block; }
+        .pnova-nav-links { display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; padding-left: 10px; -webkit-overflow-scrolling: touch; }
+        .pnova-nav-links::-webkit-scrollbar { display: none; }
+        .pnova-nav-item { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 4px; transition: all 0.2s ease; }
+        .pnova-nav-item:hover, .pnova-nav-item.active { color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    </style>
+
+    <div class="global-nav-container">
+        <nav class="pnova-navbar">
+            <a href="index.html" class="pnova-logo-wrapper">
+                <img src="logo.png" alt="PathNova Logo" class="pnova-logo-img">
+            </a>
+            <div class="pnova-nav-links">
+                <a href="index.html" class="pnova-nav-item">Home</a>
+                <a href="entranceexam.html" class="pnova-nav-item">Exams</a>
+                <a href="science.html" class="pnova-nav-item">Science</a>
+                <a href="commerce.html" class="pnova-nav-item">Commerce</a>
+                <a href="arts.html" class="pnova-nav-item">Arts</a>
+                <a href="class10.html" class="pnova-nav-item">Class 10</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        </div>
+
+</body>
+</html>
+
+    <div class="main-wrapper">
+        <div class="container">
+            
+            <!-- Universal Navbar Menu -->
+            <div class="navbar">
+                <div class="brand-logo">
+                    <span class="brand-icon">P</span>PathNova
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link active">Study Smart</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="commerce.html" class="nav-link">Commerce</a>
+                    <a href="arts.html" class="nav-link">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="#" class="nav-link">Class 10</a>
+                    <a href="#" class="nav-link">For Parents</a>
+                    <a href="#" class="nav-link">Entrance Exams</a>
+                </div>
+            </div>
+
+            <!-- Page Intro Hero banner -->
+            <div class="page-hero">
+                <div class="meta-tag">🧠 Brain Science • Study Psychology • Wellness</div>
+                <h1 class="main-title">Study Smart, <span>Stay Healthy</span></h1>
+                <p class="tagline">What stress actually does to your brain, how the best study techniques work scientifically, what to eat, and how 30 minutes of movement changes everything.</p>
+            </div>
+
+            <!-- SECTION 1: The Science of Stress -->
+            <div class="content-section">
+                <div class="section-badge">The Science of Stress on Your Brain</div>
+                <h2 class="section-title">What exam pressure actually does inside your head</h2>
+                <p class="section-subtitle">This is not motivation talk. This is biology. When a student stays under constant pressure, six specific things happen to the brain — and each one makes studying harder, not easier.</p>
+
+                <!-- Flowchart block simulator -->
+                <div class="cascade-box">
+                    <div class="cascade-title">The Stress Cascade — How one pressure leads to the next</div>
+                    <div class="cascade-flow">
+                        <div class="flow-node" style="background: #5c2538;">Exam pressure / constant stress</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #6b3f2a;">Cortisol hormone floods the brain</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #5d532b;">Hippocampus shrinks &rarr; memory fails</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #255a4e;">Amygdala overactivates &rarr; panic & fear mode</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #542247;">BDNF drops &rarr; brain stops learning new things</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #3e285c;">Sleep disrupted &rarr; brain fog next day</div>
+                        <div class="flow-arrow">&darr;</div>
+                        <div class="flow-node" style="background: #5c252a;">Dopamine depleted &rarr; nothing feels worth it</div>
+                    </div>
+                </div>
+
+                <!-- Descriptive list for stress components -->
+                <div class="info-card">
+                    <div class="info-icon-area" style="color: #f87171;">🛑</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>01</span> Memory Loss — Hippocampus shrinks</div>
+                        <div class="info-body">Depression aur chronic stress ki wajah se brain ka hippocampus — jo learning aur memory ke liye sabse important part hai — physically chota hone lagta hai. Matlab jo padha, woh yaad nhi rehta.</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-area" style="color: #fbbf24;">⚡</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>02</span> Cognitive Failure — Cortisol floods thinking</div>
+                        <div class="info-body">Heavy stress se cortisol hormone release hota hai, jo cognitive functions ko directly bura asar daalta hai. Nyi cheezein seekhna aur decisions lena behad mushkil ho jaata hai. Agar exam mein ek ghuma-fira sawal aa jaye — dimaag blank ho jaata hai.</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-area" style="color: #fbbf24;">⚠️</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>03</span> Amygdala Overactive — Fear & Panic Mode ON</div>
+                        <div class="info-body">Amygdala dimaag ka woh hissa hai jo darr aur emotions ko process karta hai. Lagatar stress ki wajah se yeh "Alert Mode" permanently on rakh deta hai. Iss wajah se bacchon ko har waqt ek anjana darr, panic attacks, aur exam ka phobia hone lagta hai — even when there is no real danger.</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-area" style="color: #f472b6;">🧬</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>04</span> Neuroplasticity Blocked — BDNF levels crash</div>
+                        <div class="info-body">Dimaag mein ek protein hota hai — BDNF (Brain-Derived Neurotrophic Factor) — jo nyi cheezein seekhne aur naye brain cells banane mein madad karta hai. Heavy stress is protein ko khatam kar deta hai. Result: baccha chaah kar bhi naye concepts aur formulas yaad nhi rakh paata.</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon-area" style="color: #c084fc;">🌙</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>05</span> Sleep Cycles Disrupted — Brain Fog</div>
+                        <div class="info-body">Jab hum sote hain, dimaag ka glymphatic system activate hota hai jo toxic waste saaf karta hai. Sirf 4-5 ghante sone se yeh cleaning nahi ho paati. Agle din dimaag bhuara, slow, aur confused rehta hai — jise "Brain Fog" kehte hain.</div>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-bottom: 0;">
+                    <div class="info-icon-area" style="color: #f87171;">😞</div>
+                    <div class="info-content">
+                        <div class="info-header"><span>06</span> Dopamine Depletion — Jeene ki ichha khatam</div>
+                        <div class="info-body">Lagatar fail hona aur kam marks aane ki wajah se dimaag mein dopamine (happy chemicals) banana band ho jaata hai. Kisi bhi cheez mein maza nahi aata. Unhe lagta hai zindagi bekar hai. Yahi woh phase hai jo extreme decisions ki taraf le jaata hai. Is phase ko pehchanein — apne ya dosto mein.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SECTION 2: Science-Backed Techniques -->
+            <div class="content-section">
+                <div class="section-badge blue-theme">Study Psychology — The Science-Backed Techniques</div>
+                <h2 class="section-title">Three methods that actually work — and why</h2>
+                <p class="section-subtitle" style="margin-bottom: 15px;">Ditch the old ways. These three rules utilize the brain's internal architecture to force retention.</p>
+
+                <!-- Method 1: Spaced Repetition -->
+                <div class="info-card" style="display: block; background: rgba(30,41,59,0.35);">
+                    <div class="info-header" style="display:flex; align-items:center; gap:8px;">
+                        <span style="color:#38bdf8; font-size:16px;">🔄</span> 1. Spaced Repetition — Bhoolo se pehle revise karo
+                    </div>
+                    <p style="color:#64748b; font-size:12px; margin-top:-4px; margin-bottom:12px; margin-left:24px;">The Forgetting Curve — Science-based revision intervals</p>
+                    
+                    <div style="background: rgba(14,165,233,0.06); border: 1px dashed rgba(14,165,233,0.15); padding:15px; border-radius:8px; font-size:13px; color:#cbd5e1; margin-left:24px;">
+                        <strong>The Forgetting Curve:</strong> Science kehta hai hum jo bhi padhte hain, uska <span style="color:#38bdf8; font-weight:700;">80% kuch hi dino mein bhool jaate hain</span>. Kisi concept ko roz rato rathne ke bajay — ek fixed interval par revise karo. Dimaag ko lagta hai yeh information bahut important hai, aur woh use permanent memory mein bhej deta hai.
+                    </div>
+
+                    <!-- Custom Built Micro Retention Graph -->
+                    <div class="graph-container" style="margin-left:24px;">
+                        <div class="graph-label">Retention level with spaced review (green bars = revision sessions)</div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 1</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 100%; background: #10b981;">100%</div></div>
+                            <div class="graph-action"></div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 2</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 42%; background: #f59e0b; color: #fff;">42%</div></div>
+                            <div class="graph-action"></div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 3</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 80%; background: #10b981;">80%</div></div>
+                            <div class="graph-action">🔄 Revise</div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 5</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 58%; background: #f59e0b; color: #fff;">58%</div></div>
+                            <div class="graph-action"></div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 7</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 75%; background: #10b981;">75%</div></div>
+                            <div class="graph-action">🔄 Revise</div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 14</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 35%; background: #ef4444; color: #fff;">35%</div></div>
+                            <div class="graph-action"></div>
+                        </div>
+                        <div class="graph-row">
+                            <div class="graph-day">Day 30</div>
+                            <div class="graph-track"><div class="graph-fill" style="width: 90%; background: #10b981;">90%</div></div>
+                            <div class="graph-action">🔄 Revise</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 24px; font-size:12px; color:#94a3b8;">
+                        <strong>Revision schedule:</strong>
+                        <span style="background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:4px; margin-left:6px;">1st day</span>
+                        <span style="background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:4px; margin-left:4px;">3rd day</span>
+                        <span style="background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:4px; margin-left:4px;">7th day</span>
+                        <span style="background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:4px; margin-left:4px;">30th day</span>
+                    </div>
+                </div>
+
+                <!-- Method 2: Active Recall -->
+                <div class="info-card" style="display: block; background: rgba(30,41,59,0.35);">
+                    <div class="info-header" style="display:flex; align-items:center; gap:8px;">
+                        <span style="color:#c084fc; font-size:16px;">🧠</span> 2. Active Recall — Dimaag par zor daalna
+                    </div>
+                    <p style="color:#64748b; font-size:12px; margin-top:-4px; margin-bottom:12px; margin-left:24px;">Testing over reading</p>
+                    
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:12px; margin-left:24px; margin-bottom:12px;">
+                        <div style="background:rgba(239,68,68,0.04); border:1px solid rgba(239,68,68,0.1); padding:15px; border-radius:8px;">
+                            <div style="color:#f87171; font-size:12px; font-weight:700; margin-bottom:4px;">🛑 Passive reading</div>
+                            <div style="font-size:12.5px; color:#94a3b8;">Sirf notes ko baar baar padhne se dimaag passive ho jaata hai. Information andar jaati hai lekin neurons ke beech strong connection nhi banta. Exam mein recall nhi hota.</div>
+                        </div>
+                        <div style="background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.1); padding:15px; border-radius:8px;">
+                            <div style="color:#34d399; font-size:12px; font-weight:700; margin-bottom:4px;">✅ Active recall</div>
+                            <div style="font-size:12.5px; color:#94a3b8;">Ek page padhne ke baad book band karo. Khud se sawal poochho — kya padha? Dimaag par zor daal kar information bahar nikalne se neurons ke beech ka connection bohot mazboot ho jaata hai.</div>
+                        </div>
+                    </div>
+                    <p style="margin-left:24px; font-size:12px; color:#c084fc; background:rgba(168,85,247,0.05); padding:8px; border-radius:6px;"><strong>How to do it:</strong> After every page/topic &rarr; close the book. Write or speak out loud what you just read. Check. Repeat for what you missed.</p>
+                </div>
+
+                <!-- Method 3: Feynman Technique -->
+                <div class="info-card" style="display: block; background: rgba(30,41,59,0.35); margin-bottom: 25px;">
+                    <div class="info-header" style="display:flex; align-items:center; gap:8px;">
+                        <span style="color:#34d399; font-size:16px;">👨‍🏫</span> 3. The Feynman Technique — Auron ko samjhaana
+                    </div>
+                    <p style="color:#64748b; font-size:12px; margin-top:-4px; margin-bottom:12px; margin-left:24px;">Ultimate test of real understanding</p>
+                    
+                    <div style="background:rgba(255,255,255,0.02); padding:15px; border-radius:8px; font-size:13px; color:#94a3b8; margin-left:24px; margin-bottom:15px;">
+                        <strong>Legendary physicist Richard Feynman ke mutabik:</strong> Agar aap kisi cheez ko simple shabdo mein explain nhi kar sakte &mdash; toh aap use khud nhi samajhte. Jis din aap koi concept kisi 10 saal ke bacche ko samjha sako, samjho woh concept aapka ho gaya.
+                    </div>
+
+                    <!-- Process Timeline Blocks -->
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-left:24px;">
+                        <div style="background:rgba(15,23,42,0.5); padding:10px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.02);">
+                            <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Step 1</div>
+                            <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Koi mushkil topic padho</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.5); padding:10px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.02);">
+                            <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Step 2</div>
+                            <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Explain karo jaise 10 saal ke bacche ko padha rahe ho</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.5); padding:10px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.02);">
+                            <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Step 3</div>
+                            <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Jahaan atak jao &mdash; wahan concept weak hai</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.5); padding:10px; border-radius:6px; text-align:center; border:1px solid rgba(255,255,255,0.02);">
+                            <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Step 4</div>
+                            <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Wahan doobara padho until it's clear</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Focus Tools Sub-Grid -->
+                <div class="section-badge blue-theme" style="margin-top:15px;">Digital Tools — Use Your Phone as a Study Partner</div>
+                <h3 style="font-size:18px; font-weight:700; margin-bottom:15px;">Apps and tools that build focus, block distraction, and boost the brain</h3>
+                
+                <div class="inner-grid-2x2 blue-theme">
+                    <div class="grid-card">
+                        <div class="grid-card-title">⏰ Pomodoro & Time-Blocking</div>
+                        <div class="grid-card-subtitle">Focus training</div>
+                        <ul class="grid-card-list">
+                            <li>Forest (Gamified focus — a tree dies if you leave)</li>
+                            <li>Focus To-Do (Pomodoro + task list combined)</li>
+                        </ul>
+                        <div class="grid-card-footer">Work 25 min &rarr; break 5 min. After 4 rounds, take 20 min rest. Your brain works in focus-recovery cycles.</div>
+                    </div>
+
+                    <div class="grid-card">
+                        <div class="grid-card-title">📱 Hardcore Web & App Blockers</div>
+                        <div class="grid-card-subtitle">Distraction elimination</div>
+                        <ul class="grid-card-list">
+                            <li>Cold Turkey (PC/Laptop — Impossible to override)</li>
+                            <li>Freedom / Stay Focused (Mobile)</li>
+                        </ul>
+                        <div class="grid-card-footer">Schedule blocks during study hours. You literally cannot open Instagram until the block ends.</div>
+                    </div>
+
+                    <div class="grid-card">
+                        <div class="grid-card-title">🎵 Brain Waves & Sound Science</div>
+                        <div class="grid-card-subtitle">Cognitive boost</div>
+                        <ul class="grid-card-list">
+                            <li>Endel / Brain.fm (AI-generated focus music)</li>
+                            <li>Noisli (Customizable ambient sounds)</li>
+                        </ul>
+                        <div class="grid-card-footer">Brown noise, binaural beats, and nature sounds are proven to improve focus for some learners. Try it.</div>
+                    </div>
+
+                    <div class="grid-card">
+                        <div class="grid-card-title">📲 Digital Minimalist Launcher</div>
+                        <div class="grid-card-subtitle">Phone ki shakal badalna</div>
+                        <ul class="grid-card-list">
+                            <li>Minimalist Phone / Niagara Launcher (Android)</li>
+                            <li>Remove social apps from home screen</li>
+                        </ul>
+                        <div class="grid-card-footer">Out of sight = out of mind. Hiding apps reduces mindless opening by 60%.</div>
+                    </div>
+                </div>
+
+                <div class="grid-card blue-theme" style="max-width:450px;">
+                    <div class="grid-card-title">🎯 Habit & Routine Trackers</div>
+                    <div class="grid-card-subtitle">Consistency builder</div>
+                    <ul class="grid-card-list">
+                        <li>Habitica (Turns habits into a game — level up your character)</li>
+                        <li>Streaks / Loop Habit Tracker</li>
+                    </ul>
+                    <div class="grid-card-footer">Consistency over intensity. 1 hour daily for 100 days > 10 hour cramming sessions.</div>
+                </div>
+            </div>
+
+
+            <!-- SECTION 3: Brain Food -->
+            <div class="content-section">
+                <div class="section-badge green-theme">Brain Food — Eat for a Sharp Memory</div>
+                <h2 class="section-title">What to eat, what to avoid, and why it changes how you study</h2>
+                
+                <div class="nested-header">🍏 Sharp Memory Foods</div>
+                <div class="inner-grid-3col green-theme">
+                    <div class="grid-card">
+                        <div class="food-item-title">Walnuts & Almonds</div>
+                        <div class="food-item-meta">Akhrot & Badam</div>
+                        <div style="font-size:12px; color:#94a3b8;">Rich in Omega-3 fatty acids that directly support brain cell structure and improve memory and learning speed.</div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="food-item-title">Turmeric</div>
+                        <div class="food-item-meta">Haldi</div>
+                        <div style="font-size:12px; color:#94a3b8;">Contains curcumin — crosses the blood-brain barrier, boosts BDNF (the same protein stress destroys), and has anti-inflammatory affects on brain tissue.</div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="food-item-title">Dark Chocolate</div>
+                        <div class="food-item-meta">70%+ cacao</div>
+                        <div style="font-size:12px; color:#94a3b8;">Flavenols in dark chocolate increase blood flow to the brain, improving focus and reaction time. Also releases a small amount of dopamine.</div>
+                    </div>
+                </div>
+
+                <div class="nested-header yellow-sub">⚡ Steady Energy (Sugar crash se bachne ke liye)</div>
+                <div class="inner-grid-2x2 green-theme">
+                    <div class="grid-card">
+                        <div class="food-item-title">Oats & Dalia (Complex carbs)</div>
+                        <div class="food-item-meta orange-meta">Morning breakfast</div>
+                        <div style="font-size:12px; color:#94a3b8;">Slow-release energy — keeps blood sugar steady for 3-4 hours. No crash mid-study.</div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="food-item-title">Roasted Chana & Makhana</div>
+                        <div class="food-item-meta orange-meta">Study snack</div>
+                        <div style="font-size:12px; color:#94a3b8;">High protein, low GI snack. Keeps you full and focused without the sugar spike-crash cycle.</div>
+                    </div>
+                </div>
+
+                <div class="nested-header">💪 Energy & Stamina Foods</div>
+                <div class="inner-grid-2x2 green-theme">
+                    <div class="grid-card">
+                        <div class="food-item-title">Eggs or Bananas</div>
+                        <div class="food-item-meta">High Protein</div>
+                        <div style="font-size:12px; color:#94a3b8;">Eggs give complete amino acids for brain neurotransmitters. Bananas give quick natural energy + potassium for muscle and nerve function.</div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="food-item-title">Green Leafy Vegetables</div>
+                        <div class="food-item-meta">Spinach, methi, palak</div>
+                        <div style="font-size:12px; color:#94a3b8;">Rich in folate, iron, and vitamin K — all linked to slower cognitive decline and better working memory.</div>
+                    </div>
+                </div>
+
+                <div class="nested-header yellow-sub">💧 Mental Calmness & Hydration (Stress reduction)</div>
+                <div class="inner-grid-2x2 green-theme">
+                    <div class="grid-card">
+                        <div class="food-item-title">Water</div>
+                        <div class="food-item-meta orange-meta">Minimum 2.5-3L / day</div>
+                        <div style="font-size:12px; color:#94a3b8;">Even 2% dehydration drops attention span and processing speed. Keep a water bottle on your study desk always.</div>
+                    </div>
+                    <div class="grid-card">
+                        <div class="food-item-title">Curd (Dahi)</div>
+                        <div class="food-item-meta orange-meta">Probiotics</div>
+                        <div style="font-size:12px; color:#94a3b8;">Gut-brain axis! Healthy gut bacteria directly reduce anxiety hormones and optimize overall focus and mental clarity.</div>
+                    </div>
+                </div>
+
+                <div class="nested-header red-sub">❌ Avoid These — They Work Against You</div>
+                <div class="inner-grid-2x2 green-theme">
+                    <div class="grid-card" style="background:rgba(239,68,68,0.02); border-color:rgba(239,68,68,0.15);">
+                        <div class="food-item-title" style="color:#f87171;">🛑 Sugar & Junk Food</div>
+                        <div style="font-size:12px; color:#94a3b8; margin-top:6px;">Massive glucose spike &rarr; crash in 30-60 min. You feel sleepy, unfocused, and irritable exactly when you need to study. Zero nutritional value for the brain.</div>
+                    </div>
+                    <div class="grid-card" style="background:rgba(239,68,68,0.02); border-color:rgba(239,68,68,0.15);">
+                        <div class="food-item-title" style="color:#f87171;">🛑 Excess Tea / Coffee</div>
+                        <div style="font-size:12px; color:#94a3b8; margin-top:6px;">1-2 cups is fine. Beyond that, excess caffeine raises cortisol (same hormone that shrinks the hippocampus), disrupts sleep, and causes anxiety — all the opposite of what you need.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SECTION 4: Light & Effective Exercises -->
+            <div class="content-section">
+                <div class="section-badge teal-theme">Light & Effective Exercises — Just 30 Minutes</div>
+                <h2 class="section-title">Move your body to wake your brain</h2>
+                <p class="section-subtitle">You don't need a gym. These four routines take 30 minutes total and directly improve blood flow to the brain, fix neck/back pain from studying, and release the tension that blocks thinking.</p>
+
+                <!-- Exercise 1 -->
+                <div class="info-card" style="display:block;">
+                    <div class="info-header"><span style="color:#2dd4bf;">1.</span> Cardio & Movement <span style="font-weight:normal; font-size:12px; margin-left:10px; color:#64748b;">10-15 min</span></div>
+                    <div style="color:#34d399; font-size:12px; margin-bottom:12px;">Dimaag ko jagaana — 10 to 15 minutes</div>
+                    <div class="inner-grid-3col">
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Jumping Jacks</div>
+                            <div style="font-size:10px; color:#34d399; margin-bottom:4px;">3-5 min</div>
+                            <div style="font-size:11.5px; color:#94a3b8;">Increases heart rate quickly, pumps oxygenated blood to the brain within 60 seconds.</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Spot Walking / Jogging</div>
+                            <div style="font-size:10px; color:#34d399; margin-bottom:4px;">5-10 min</div>
+                            <div style="font-size:11.5px; color:#94a3b8;">Light sustained cardio releases BDNF — the same brain-growth protein that stress destroys.</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Skipping (with/without rope)</div>
+                            <div style="font-size:10px; color:#34d399; margin-bottom:4px;">3 min</div>
+                            <div style="font-size:11.5px; color:#94a3b8;">Full body coordination exercise. Even imaginary skipping activates the same neural pathways.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="info-card" style="display:block;">
+                    <div class="info-header"><span style="color:#2dd4bf;">2.</span> Desk Stretches <span style="font-weight:normal; font-size:12px; margin-left:10px; color:#64748b;">5-10 min</span></div>
+                    <div style="color:#34d399; font-size:12px; margin-bottom:12px;">Neck aur back pain ke liye — 5 to 10 minutes</div>
+                    <div class="inner-grid-3col">
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Neck Rolls</div>
+                            <div style="font-size:11.5px; color:#94a3b8; margin-top:4px;">Gently roll your head in a slow circle — 5 times each direction. Releases tension from hours of looking down at books.</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Shoulder Shrugs & Rolls</div>
+                            <div style="font-size:11.5px; color:#94a3b8; margin-top:4px;">Lift shoulders to ears, hold 3 seconds, release. Then roll backward in big circles. Releases upper back tightness immediately.</div>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.4); padding:12px; border-radius:6px;">
+                            <div style="font-size:12px; font-weight:600; color:#fff;">Spinal Seated Twist</div>
+                            <div style="font-size:11.5px; color:#94a3b8; margin-top:4px;">Sitting on chair, twist your body to the right, hold 20 seconds. Repeat left. Depressurizes the spine from long sitting.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 3 -->
+                <div class="info-card" style="display:block;">
+                    <div class="info-header"><span style="color:#2dd4bf;">3.</span> Posture Correction — Yoga Poses <span style="font-weight:normal; font-size:12px; margin-left:10px; color:#64748b;">5 min</span></div>
+                    <div style="color:#a855f7; font-size:12px; margin-bottom:12px;">Energy levels increase — 5 minutes</div>
+                    
+                    <div class="yoga-flex-box">
+                        <div class="yoga-card">
+                            <div class="yoga-canvas" style="background: rgba(168,85,247,0.03);">
+                                <div class="shape-childspose"></div>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; color:#fff;">Child's Pose &mdash; Balasana</div>
+                            <div style="font-size:11px; color:#a855f7; margin-bottom:6px;">2-3 minutes</div>
+                            <div style="font-size:12px; color:#94a3b8;">Kneel on floor, sit back on heels, stretch arms forward and rest your forehead on the ground. Deep breathing. <strong style="color:#e2e8f0;">Instantly calms the nervous system</strong>, releases lower back tension, and sends blood to the brain when you sit back up.</div>
+                        </div>
+                        
+                        <div class="yoga-card">
+                            <div class="yoga-canvas" style="background: rgba(16,185,129,0.03);">
+                                <div class="shape-catcow"></div>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; color:#fff;">Cat-Cow Stretch</div>
+                            <div style="font-size:11px; color:#10b981; margin-bottom:6px;">1-2 minutes (8-10 slow cycles)</div>
+                            <div style="font-size:12px; color:#94a3b8;">On hands and knees &mdash; arch your spine up (cat), then drop it down and lift head (cow). Repeat slowly. <strong style="color:#e2e8f0;">Warms up the entire spine</strong>, improves posture, and the deep breathing activates the parasympathetic (calm) nervous system.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 4 -->
+                <div class="info-card" style="display:block; margin-bottom:0;">
+                    <div class="info-header"><span style="color:#2dd4bf;">4.</span> Mental Calmness & Breathing <span style="font-weight:normal; font-size:12px; margin-left:10px; color:#64748b;">5 min</span></div>
+                    <div style="color:#38bdf8; font-size:12px; margin-bottom:15px;">Stress relief — 5 minutes</div>
+                    
+                    <div class="breath-wrapper">
+                        <!-- Pseudo Vector Box Box Graphic component -->
+                        <div class="breath-square-box">
+                            <div class="breath-center-txt">Box<br>Breathing</div>
+                            <div class="dir-label dir-top">Inhale &rarr; 4s</div>
+                            <div class="dir-label dir-right">HOLD &rarr; 4s</div>
+                            <div class="dir-label dir-bottom">&larr; Exhale &mdash; 4s</div>
+                            <div class="dir-label dir-left">HOLD &mdash; 4s</div>
+                        </div>
+                        
+                        <div class="breath-steps-list">
+                            <div style="font-size:14px; font-weight:600; color:#fff; margin-bottom:4px;">Box Breathing &mdash; 4-4-4-4 Technique</div>
+                            <p style="font-size:12px; color:#94a3b8; margin-bottom:8px;">Used by Navy SEALs before high-pressure situations. Directly activates the parasympathetic nervous system and drops cortisol within 2–3 minutes.</p>
+                            <div class="breath-step-row"><span class="b-step-lbl in">⬇️ Inhale</span><span>4 seconds</span></div>
+                            <div class="breath-step-row"><span class="b-step-lbl hd">⏸️ Hold</span><span>4 seconds</span></div>
+                            <div class="breath-step-row"><span class="b-step-lbl ex">⬆️ Exhale</span><span>4 seconds</span></div>
+                            <div class="breath-step-row"><span class="b-step-lbl h2">⏸️ Hold</span><span>4 seconds</span></div>
+                            <p style="font-size:11px; color:#64748b; margin-top:4px;">Do 4–6 cycles. Use before a study session, before an exam, or when anxiety spikes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 5: The Daily Minimum Checklist -->
+            <div class="checklist-container">
+                <div class="checklist-title-bar">
+                    <span>🛡️</span> The daily minimum — 5 things every student should do
+                </div>
+                <div class="checklist-item">
+                    <span class="check-bullet-icon">🔄</span>
+                    <div>Revise at spaced intervals — not every day in a row.</div>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-bullet-icon">📖</span>
+                    <div>Close the book after every topic and recall it out loud.</div>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-bullet-icon">🥣</span>
+                    <div>Eat breakfast with complex carbs + protein. Avoid sugar before studying.</div>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-bullet-icon">🏃‍♂️</span>
+                    <div>10–15 minutes of movement before a study session — even just spot jogging.</div>
+                </div>
+                <div class="checklist-item" style="margin-bottom: 0;">
+                    <span class="check-bullet-icon">🧘‍♂️</span>
+                    <div>Box breathing for 5 minutes when anxiety spikes — it actually works.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Board - PathNova</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #0b153a 0%, #070f2b 60%, #030712 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .brand-icon {
+            background: #4f46e5;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Hero */
+        .page-hero {
+            margin-bottom: 40px;
+        }
+        .main-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .tagline {
+            color: #94a3b8;
+            font-size: 15.5px;
+            max-width: 800px;
+        }
+
+        /* Section Block Base */
+        .section-block {
+            background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .section-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+        .badge-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+        .badge-orange { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .badge-pink { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+        .section-desc {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .card:last-child { margin-bottom: 0; }
+        
+        .card-header {
+            font-size: 14.5px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-body {
+            font-size: 13.5px;
+            color: #94a3b8;
+        }
+
+        /* Specific Card Styles */
+        .card.danger {
+            background: rgba(239, 68, 68, 0.04);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+        }
+        .card.danger .card-header { color: #f87171; }
+        
+        .card.success {
+            background: rgba(16, 185, 129, 0.04);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+        .card.success .card-header { color: #34d399; }
+        
+        .card.pink-tint {
+            background: rgba(236, 72, 153, 0.04);
+            border: 1px solid rgba(236, 72, 153, 0.15);
+        }
+        .card.pink-tint .card-header { color: #f472b6; }
+        
+        .card.green-tint {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+        }
+        .card.green-tint .card-header { color: #34d399; }
+
+        /* 84 vs 99 Box */
+        .comparison-box {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .comp-grid {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .comp-item {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.5);
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .comp-percent {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+        .comp-lbl { font-size: 12px; color: #64748b; }
+        .comp-result {
+            background: rgba(56, 189, 248, 0.08);
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #cbd5e1;
+            border: 1px dashed rgba(56, 189, 248, 0.2);
+        }
+        .comp-result strong { color: #f8fafc; }
+
+        /* Important Note Box */
+        .important-box {
+            border-left: 3px solid #fbbf24;
+            background: rgba(251, 191, 36, 0.05);
+            padding: 12px 15px;
+            font-size: 12.5px;
+            color: #cbd5e1;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+        .important-box strong { color: #fbbf24; }
+
+        /* Two Column Grid */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 600px) {
+            .two-col-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 4 Item Grid for Physical Health */
+        .four-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .four-grid-item {
+            background: rgba(15, 23, 42, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        .four-grid-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #34d399;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .four-grid-desc { font-size: 12.5px; color: #94a3b8; }
+        @media (max-width: 600px) {
+            .four-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Crisis Contacts */
+        .crisis-box {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        .crisis-box strong { color: #f472b6; }
+
+        /* Summary List */
+        .summary-list {
+            list-style: none;
+        }
+        .summary-list li {
+            background: rgba(15, 23, 42, 0.4);
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #cbd5e1;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .summary-list li:last-child { margin-bottom: 0; }
+        .list-icon { color: #c084fc; flex-shrink: 0; margin-top: 2px;}
+
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Entrance Exams</title>
+    </head>
+
+<body> <style>
+        .global-nav-container { margin: 0; padding: 0; box-sizing: border-box; }
+        .pnova-navbar { background-color: #0b0f19; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 9999; }
+        .pnova-logo-wrapper { display: flex; align-items: center; text-decoration: none; }
+        .pnova-logo-img { height: 48px; width: auto; object-fit: contain; display: block; }
+        .pnova-nav-links { display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; padding-left: 10px; -webkit-overflow-scrolling: touch; }
+        .pnova-nav-links::-webkit-scrollbar { display: none; }
+        .pnova-nav-item { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 4px; transition: all 0.2s ease; }
+        .pnova-nav-item:hover, .pnova-nav-item.active { color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    </style>
+
+    <div class="global-nav-container">
+        <nav class="pnova-navbar">
+            <a href="index.html" class="pnova-logo-wrapper">
+                <img src="logo.png" alt="PathNova Logo" class="pnova-logo-img">
+            </a>
+            <div class="pnova-nav-links">
+                <a href="index.html" class="pnova-nav-item">Home</a>
+                <a href="entranceexam.html" class="pnova-nav-item">Exams</a>
+                <a href="science.html" class="pnova-nav-item">Science</a>
+                <a href="commerce.html" class="pnova-nav-item">Commerce</a>
+                <a href="arts.html" class="pnova-nav-item">Arts</a>
+                <a href="class10.html" class="pnova-nav-item">Class 10</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        </div>
+
+</body>
+</html>
+
+    <div class="main-wrapper">
+        <div class="container">
+            
+            <!-- Navbar -->
+            <div class="navbar">
+                <div class="brand-logo">
+                    <span class="brand-icon">P</span>PathNova
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="studysmart.html" class="nav-link">Study Smart</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="commerce.html" class="nav-link">Commerce</a>
+                    <a href="arts.html" class="nav-link">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="#" class="nav-link active">Class 10</a>
+                    <a href="#" class="nav-link">For Parents</a>
+                    <a href="#" class="nav-link">Entrance Exams</a>
+                </div>
+            </div>
+
+            <!-- Hero -->
+            <div class="page-hero">
+                <h1 class="main-title">Class 10 Board &mdash; The Real Picture</h1>
+                <p class="tagline">What your marks actually mean, why coaching is not needed, and why your health matters more than any result.</p>
+            </div>
+
+            <!-- Section 1: Coaching -->
+            <div class="section-block">
+                <div class="section-badge badge-blue">Coaching for Class 10?</div>
+                <h2 class="section-title">You do not need to spend a single rupee on coaching</h2>
+                
+                <div class="card danger">
+                    <div class="card-header">⊗ Coaching for Class 10 boards &mdash; absolutely not necessary</div>
+                    <div class="card-body">
+                        The Class 10 NCERT syllabus is well-written, manageable, and completely self-study friendly. If you follow the self-study method &mdash; reading NCERT properly, making rough notebook notes, doing PYQ &mdash; you do not need to spend a single rupee on tuition or coaching. That money is better saved for when it actually matters.
+                    </div>
+                </div>
+
+                <div class="card success">
+                    <div class="card-header">✓ Self-study is enough &mdash; and it's free</div>
+                    <div class="card-body">
+                        Class 10 boards test your understanding of NCERT. Nothing more. Students who follow a consistent self-study routine regularly outperform students who spend thousands on coaching but rely on it completely. The method is already on this site &mdash; use it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Truth About Marks -->
+            <div class="section-block">
+                <div class="section-badge badge-purple">The Truth About Your Class 10 Marks</div>
+                <h2 class="section-title">Class 10 result has one job &mdash; helping you choose your stream</h2>
+                
+                <div class="card">
+                    <div class="card-header">🏆 What Class 10 marks are actually used for today</div>
+                    <div class="card-body">
+                        In today's education system, your Class 10 result is primarily used for one thing: <strong>stream selection in Class 11</strong>. Some schools have minimum percentage requirements for Science stream. Beyond that, your Class 10 percentage does not follow you into college admissions, job interviews, or life decisions.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">💡 The 84% vs 99% reality</div>
+                    <div class="card-body">
+                        Imagine two students. One scores 84% in Class 10 boards. The other scores 99%. Both choose Science stream. Both join Class 11.
+                        
+                        <div class="comparison-box">
+                            <div class="comp-grid">
+                                <div class="comp-item">
+                                    <div class="comp-percent">84%</div>
+                                    <div class="comp-lbl">Class 10 result</div>
+                                </div>
+                                <div class="comp-item">
+                                    <div class="comp-percent">99%</div>
+                                    <div class="comp-lbl">Class 10 result</div>
+                                </div>
+                            </div>
+                            <div class="comp-result">
+                                <strong>On Day 1 of Class 11 &mdash; both are exactly equal.</strong><br>
+                                Class 11 Physics does not care what you scored in Class 10. The slate resets. What matters from here is how you study <em>now</em>.
+                            </div>
+                        </div>
+
+                        <div class="important-box">
+                            <strong>Important:</strong> This does not mean you should stop studying or take boards lightly. Study well &mdash; but study to understand, not to chase a number. Your goal is to learn the subjects, not to optimize a percentage that will matter for exactly one decision.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Social Pressure -->
+            <div class="section-block">
+                <div class="section-badge badge-orange">Relatives, Parents & Social Pressure</div>
+                <h2 class="section-title">Don't trade your life's direction for one day's newspaper photo</h2>
+                
+                <div class="card">
+                    <div class="card-header">📰 The newspaper photo lasts one day</div>
+                    <div class="card-body">
+                        Some students and families chase top marks to get a mention in the local newspaper or to become the "topper of the colony." That photo exists for one morning. The next day, nobody looks at it again. Do not sacrifice learning something genuinely useful, a skill, a hobby, an interest you actually have &mdash; just to appear in a column that gets recycled the same week.
+                    </div>
+                </div>
+
+                <div class="two-col-grid">
+                    <div class="card" style="margin-bottom:0;">
+                        <div class="card-header">⏱️ Relatives remember your marks for 1-2 days. Maximum.</div>
+                        <div class="card-body">
+                            Whether you scored 95% or 72% &mdash; the same relatives who commented loudly will not remember the number six months later. They move on to the next thing to talk about. The weight you are carrying from their words is heavier than the weight they gave to saying them.
+                        </div>
+                    </div>
+                    <div class="card" style="margin-bottom:0;">
+                        <div class="card-header">🔗 In the future, they will respect you for completely different things</div>
+                        <div class="card-body">
+                            Ten years from now, the same relatives will judge you by how much you earn, how you carry yourself, how you treat people. Not a single one will bring up your Class 10 percentage. The things that actually matter in the future have nothing to do with your board result.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">👥 When parents say something &mdash; hear it, then let it go</div>
+                    <div class="card-body">
+                        Parents usually say things about marks out of anxiety, not malice &mdash; they worry about your future. Hear them, acknowledge it, and then focus on your own pace. You do not need to argue. You do not need to prove anything right now. Just keep working consistently. The results will speak for themselves, and much louder than any conversation at a family gathering.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" style="color: #f87171;">🚫 Toxic relatives &mdash; it is completely okay to create distance</div>
+                    <div class="card-body">
+                        If a relative consistently says things that make you feel worthless, stupid, or like a failure &mdash; you are allowed to mute them, avoid those conversations, and if needed, yes, block their number. Your mental peace during this period is worth more than maintaining contact with someone who tears you down every time your marks come up. Protecting your focus is not rude. It is necessary.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Mental Health -->
+            <div class="section-block">
+                <div class="section-badge badge-pink">Mental Health &mdash; The Most Important Section on This Page</div>
+                <h2 class="section-title">Class 10 is not hard. Your life is worth more than any exam.</h2>
+                
+                <div class="section-desc">
+                    Class 10 boards are genuinely manageable. The syllabus is structured, the questions are predictable, and the NCERT is all you need. Students struggle not because the exam is difficult &mdash; but because of the <strong>pressure, fear, and comparison</strong> that surrounds it.
+                </div>
+
+                <div class="card pink-tint">
+                    <div class="card-header">♡ No exam is more important than your life</div>
+                    <div class="card-body">
+                        If you are feeling overwhelmed, anxious, or hopeless about your exams &mdash; please talk to someone. A parent, a friend, a teacher, or a counselor. The pressure you feel right now is real, but it is also temporary. Your result &mdash; whether it is 60% or 95% &mdash; is not the end of anything.
+                        
+                        <div class="crisis-box">
+                            If you are in crisis, please reach out:<br>
+                            iCall (India): <strong>9152987821</strong><br>
+                            Vandrevala Foundation: <strong>1860-2662-345</strong> (24/7)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">👥 You are not alone in feeling this</div>
+                    <div class="card-body">
+                        Every student sitting for Class 10 boards feels nervous. The ones who look calm are nervous too &mdash; they are just hiding it. Feeling scared before an important exam is completely human. But please do not let that fear convince you that a bad result means a bad life. It does not. Students who failed Class 10 have gone on to do extraordinary things. Students who scored 95% have had difficult lives too. The exam is a small chapter, not the whole story.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Physical Health -->
+            <div class="section-block">
+                <div class="section-badge badge-green">Physical Health & Actually Enjoying Class 10</div>
+                <h2 class="section-title">Study well &mdash; and then switch off completely</h2>
+                
+                <div class="section-desc">
+                    Class 10 is one of the last years where your schedule is relatively free. Class 11-12 will be significantly harder and more time-consuming. Use Class 10 to build good habits &mdash; but also to genuinely enjoy school life while it lasts.
+                </div>
+
+                <div class="four-grid">
+                    <div class="four-grid-item">
+                        <div class="four-grid-title">⚽ Play in the evening</div>
+                        <div class="four-grid-desc">Every evening, step away from books and play &mdash; any sport, any game. Physical movement resets your brain and genuinely improves memory and focus the next day. This is not wasted time.</div>
+                    </div>
+                    <div class="four-grid-item">
+                        <div class="four-grid-title">🎉 Enjoy every festival</div>
+                        <div class="four-grid-desc">Diwali, Holi, Eid, Christmas, your birthday &mdash; be present for all of it. Forcing yourself to study through every festival breeds resentment for studying. Celebrate fully, then return.</div>
+                    </div>
+                    <div class="four-grid-item">
+                        <div class="four-grid-title">☕ Keep it casual</div>
+                        <div class="four-grid-desc">Class 10 does not require a military-level schedule. Consistent, focused study for a few hours each day is enough. Keep the rest of your day light.</div>
+                    </div>
+                    <div class="four-grid-item">
+                        <div class="four-grid-title">☀️ Get outside and sleep properly</div>
+                        <div class="four-grid-desc">Sleep 7-8 hours. Go outside daily. Sunlight, movement, and rest are not luxuries &mdash; they are what make studying actually work. A tired brain learns nothing.</div>
+                    </div>
+                </div>
+
+                <div class="card green-tint">
+                    <div class="card-header">⚕️ Your physical health directly affects your marks</div>
+                    <div class="card-body">
+                        Students who exercise, sleep well, and take regular breaks consistently outperform students who study for 12 hours straight. This is not motivation-poster advice &mdash; it is how the brain works. Downtime is when memory consolidates. Rest is part of the study plan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="section-block" style="margin-bottom:0;">
+                <h2 class="section-title" style="color: #c084fc; font-size: 18px; margin-bottom:15px; display:flex; align-items:center; gap:8px;">
+                    💡 The Class 10 summary, honestly
+                </h2>
+                
+                <ul class="summary-list">
+                    <li><span class="list-icon">✓</span> You do not need coaching &mdash; self-study with NCERT is completely enough.</li>
+                    <li><span class="list-icon">✓</span> Your Class 10 marks only matter for stream selection. After that, the slate resets.</li>
+                    <li><span class="list-icon">✓</span> 84% and 99% students start at exactly the same place in Class 11.</li>
+                    <li><span class="list-icon">✓</span> Study consistently, but enjoy school life, festivals, evenings, and friendships.</li>
+                    <li><span class="list-icon">✓</span> Play daily. Sleep properly. Go outside. Your health is your most important asset.</li>
+                    <li><span class="list-icon">♡</span> No exam is more important than your life. Talk to someone if the pressure feels too heavy.</li>
+                    <li><span class="list-icon">⏱️</span> Relatives remember your marks for 1-2 days. In the future, they respect your earnings and behavior &mdash; not your board result.</li>
+                    <li><span class="list-icon">🚫</span> Toxic relatives making you feel worthless? Creating distance &mdash; or blocking them &mdash; is completely okay.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

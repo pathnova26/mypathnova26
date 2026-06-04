@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Stream - PathNova</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #0b153a 0%, #070f2b 60%, #030712 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Navbar Header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .brand-icon {
+            background: #4f46e5;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* Stream Header Hero */
+        .stream-hero {
+            margin-bottom: 35px;
+        }
+        .stream-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .stream-tagline {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        /* Difficulty & Competition Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: rgba(30, 41, 59, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .stat-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .rating-stars {
+            font-size: 18px;
+            color: #c084fc;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .rating-value {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        .stat-desc {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* Standard Segment Blocks */
+        .section-box {
+            margin-bottom: 45px;
+        }
+        .section-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section-badge.purple-variant {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+        }
+        .section-badge.pink-variant {
+            background: rgba(236, 72, 153, 0.15);
+            color: #f472b6;
+        }
+        .section-heading {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Detail Rows inside Content Container */
+        .detail-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .detail-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+        .detail-card-body {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .detail-card-body ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .detail-card-body li {
+            margin-bottom: 8px;
+        }
+
+        /* Horizontal Tag Pills */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag-element {
+            background: rgba(147, 51, 234, 0.15);
+            color: #c084fc;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .tag-element.blue-pill {
+            background: rgba(59, 130, 246, 0.12);
+            color: #60a5fa;
+        }
+        .tag-element.cyan-pill {
+            background: rgba(6, 182, 212, 0.12);
+            color: #22d3ee;
+        }
+
+        /* Critical Warning Boxes */
+        .warning-strip {
+            background: rgba(245, 158, 11, 0.07);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .warning-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .warning-text {
+            color: #cbd5e1;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        /* Typical Week Layout Matrices */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .day-block {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .day-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 6px;
+        }
+        .day-schedule {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Locked Footer Section */
+        .locked-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            margin-top: 50px;
+            padding-bottom: 40px;
+        }
+        .lock-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        .lock-message {
+            font-size: 13px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Entrance Exams</title>
+    </head>
+
+<body> <style>
+        .global-nav-container { margin: 0; padding: 0; box-sizing: border-box; }
+        .pnova-navbar { background-color: #0b0f19; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 9999; }
+        .pnova-logo-wrapper { display: flex; align-items: center; text-decoration: none; }
+        .pnova-logo-img { height: 48px; width: auto; object-fit: contain; display: block; }
+        .pnova-nav-links { display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; padding-left: 10px; -webkit-overflow-scrolling: touch; }
+        .pnova-nav-links::-webkit-scrollbar { display: none; }
+        .pnova-nav-item { color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 4px; transition: all 0.2s ease; }
+        .pnova-nav-item:hover, .pnova-nav-item.active { color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    </style>
+
+    <div class="global-nav-container">
+        <nav class="pnova-navbar">
+            <a href="index.html" class="pnova-logo-wrapper">
+                <img src="logo.png" alt="PathNova Logo" class="pnova-logo-img">
+            </a>
+            <div class="pnova-nav-links">
+                <a href="index.html" class="pnova-nav-item">Home</a>
+                <a href="entranceexam.html" class="pnova-nav-item">Exams</a>
+                <a href="science.html" class="pnova-nav-item">Science</a>
+                <a href="commerce.html" class="pnova-nav-item">Commerce</a>
+                <a href="arts.html" class="pnova-nav-item">Arts</a>
+                <a href="class10.html" class="pnova-nav-item">Class 10</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        </div>
+
+</body>
+</html>
+
+    <div class="main-wrapper">
+        <div class="container">
+            
+            <div class="navbar">
+                <div class="brand-logo">
+                    <span class="brand-icon">P</span>PathNova
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Study Smart</a>
+                    <a href="#" class="nav-link active">Science</a>
+                    <a href="#" class="nav-link">Commerce</a>
+                    <a href="#" class="nav-link">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="#" class="nav-link">Class 10</a>
+                    <a href="#" class="nav-link">For Parents</a>
+                    <a href="#" class="nav-link">Entrance Exams</a>
+                </div>
+            </div>
+
+            <div class="stream-hero">
+                <h1 class="stream-title">Science Stream</h1>
+                <p class="stream-tagline">The path of logic, analysis, and deep conceptual understanding.</p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-title">Academic Difficulty</div>
+                    <div class="rating-stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9734; <span class="rating-value">4/5</span>
+                    </div>
+                    <div class="stat-desc">Steep jump in concept depth from Class 10.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Competition Level</div>
+                    <div class="rating-stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9733; <span class="rating-value">5/5</span>
+                    </div>
+                    <div class="stat-desc">Millions of students competing for limited top-tier seats.</div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge">Class 9 & 10</div>
+                <h2 class="section-heading">Know Your Stream First</h2>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🧬 What You Will Study</div>
+                    <div class="detail-card-body">
+                        Physics, Chemistry, Biology (PCB) or Physics, Chemistry, Mathematics (PCM) — or all four (PCMB). Each subject demands a completely different way of thinking. Physics is about principles and applying them. Chemistry is part memory, part logic. Maths is pure problem-solving. Biology is detailed understanding of living systems.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">⏱️ How Much You Need to Study</div>
+                    <div class="detail-card-body">
+                        Expect 4–7 hours of self-study daily in Class 11–12, on top of school hours. Concepts stack on top of each other — If you miss one week, the next week becomes twice as hard.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">📖 The Big Difference from Class 10</div>
+                    <div class="detail-card-body">
+                        Class 10 Science is about understanding the world around you. Class 11 Science is about understanding <i>why</i> it works — through mathematics, derivations, and proofs. Rote learning stops working entirely.
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💡 What Kind of Student Thrives Here</div>
+                    <div class="detail-card-body">
+                        <div class="tag-group" style="margin-top: 0;">
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Genuinely curious about how things work</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Enjoys solving problems step-by-step</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Comfortable with long study hours</span>
+                            <span class="tag-element" style="background:rgba(147,51,234,0.1); color:#c084fc;">Prefers understanding over memorizing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-strip">
+                    <div class="warning-title">⚠️ Honest Reality</div>
+                    <div class="warning-text">
+                        Science is a strong choice if you love the subjects — not just because of parental pressure or because you scored 90%+ in Class 10. Many students who topped Class 10 struggle in Science because they relied on memorization, not understanding.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge purple-variant">&#9734; Opportunities Students Should Know Early</div>
+                <p style="color: #64748b; font-size: 13.5px; margin-top: -15px; margin-bottom: 20px;">These are not mandatory — but students who do them early build a profile that opens doors others don't even know exist.</p>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🛡️ NCC (National Cadet Corps)</div>
+                    <div class="detail-card-body">
+                        If you're interested in Defence, ISRO, or government research roles, NCC builds your profile significantly. The A/B/C certificates are recognized in many university admissions. It builds discipline and time management — which are non-negotiable in Science.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Defence profile</span>
+                            <span class="tag-element blue-pill">Admission advantage</span>
+                            <span class="tag-element blue-pill">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🏆 Regional / National Representation</div>
+                    <div class="detail-card-body">
+                        Representing your school or district in Science exhibitions, Maths olympiads, or even sports shows that you perform under pressure. Universities — especially engineering and medical colleges — value consistent achievers outside the classroom.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Student profile</span>
+                            <span class="tag-element blue-pill">Scholarship eligibility</span>
+                            <span class="tag-element blue-pill">Interview edge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🗣️ Debate / MUN / Public Speaking</div>
+                    <div class="detail-card-body">
+                        Many Science students ignore this. That is a mistake. Soft skills matter enormously in research interviews, college selections, and jobs. If you can explain a complex concept clearly, you stand apart from thousands who just solved the same problems.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Communication skills</span>
+                            <span class="tag-element blue-pill">Interview confidence</span>
+                            <span class="tag-element blue-pill">College selections</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">🔬 Olympiads & Science Competitions</div>
+                    <div class="detail-card-body">
+                        NTSE, NSO, KVPY (now IQMR), Olympiads in Physics, Chemistry, Maths, Biology — these build your competitive mindset early. They appear on college applications and can open scholarship doors. Even preparing trains you for JEE/NEET thinking.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Scholarships</span>
+                            <span class="tag-element blue-pill">IIT/NIT profile</span>
+                            <span class="tag-element blue-pill">STEM exposure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">code/ Coding / Projects</div>
+                    <div class="detail-card-body">
+                        If you are PCM, learning to code — even basic Python or C++ — while in Class 9-10 puts you years ahead. Tech colleges love students with project portfolios. Build something small: a calculator, a game, a website. It is more impressive than any certificate.
+                        <div class="tag-group">
+                            <span class="tag-element blue-pill">Tech college portfolio</span>
+                            <span class="tag-element blue-pill">Internship readiness</span>
+                            <span class="tag-element blue-pill">Future-proof skill</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <div class="section-badge pink-variant">Class 11 & 12</div>
+                <h2 class="section-heading">What These Two Years Actually Look Like</h2>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💎 Subject Combinations</div>
+                    <div class="detail-card-body">
+                        You will choose one of these combinations depending on your goal:
+                        <ul style="list-style-type: none; padding-left: 0; margin-top: 15px;">
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">PCM — Physics, Chemistry, Mathematics</strong>
+                                For engineering, tech, architecture, data science. Maths is the backbone of everything here.
+                            </li>
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">PCB — Physics, Chemistry, Biology</strong>
+                                For medicine, dentistry, pharmacy, nursing, biotech. Biology becomes very detailed and memory-intensive.
+                            </li>
+                            <li style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.02);">
+                                <strong style="color: #fff; display: block; margin-bottom: 2px;">PCMB — All four subjects</strong>
+                                Gives maximum flexibility but maximum load. Only recommended if you are genuinely strong in all areas.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">👥 School vs. Coaching — The Real Story</div>
+                    <div class="detail-card-body">
+                        Most serious Science students attend coaching classes (Kota model, local coaching, or online platforms like PW, Unacademy, Allen). Here is what nobody tells you:
+                        <ul>
+                            <li>School covers the NCERT syllabus. Coaching covers the competitive exam syllabus. These overlap but are not identical — you need both.</li>
+                            <li>Many students attend coaching 4–5 days a week after school. This means studying from 7am to 10pm on most days. This is the reality — plan for it.</li>
+                            <li>Online coaching has made quality teaching accessible. You do not have to go to Kota anymore. But you do need self-discipline — nobody tracks you online.</li>
+                            <li>NCERT is non-negotiable for boards. Never ignore it chasing coaching material.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">📊 Board Exam Pattern (CBSE)</div>
+                    <div class="detail-card-body">
+                        <ul>
+                            <li>Each subject is 70 marks written + 30 marks practical/internal. Total: 100 marks.</li>
+                            <li>Questions range from MCQs (1 mark) to long derivations and numericals (5 marks). Speed and accuracy both matter.</li>
+                            <li>Practicals in Physics, Chemistry, Biology are real lab work — graded by an external examiner. They are easier to score in, but you must actually prepare.</li>
+                            <li>Class 12 board marks matter for: college cutoffs, CUET (for some programs), and scholarship eligibility — not just entrance rank.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">⏳ What a Typical Week Looks Like</div>
+                    <div class="detail-card-body">
+                        <p style="margin-bottom: 10px; font-style: italic; color: #64748b;">This is not a motivational quote. This is the actual schedule most serious Science students follow:</p>
+                        <div class="week-grid">
+                            <div class="day-block">
+                                <div class="day-title">Monday – Friday</div>
+                                <div class="day-schedule">School (6-7 hrs) &rarr; Coaching (2-3 hrs) &rarr; Self-study / revision (1-2 hrs). Sleep by 11pm if you're disciplined.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Saturday</div>
+                                <div class="day-schedule">Full coaching day or weekly mock test. Review your mistakes in the evening — this is where the real learning happens.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Sunday</div>
+                                <div class="day-schedule">Catch-up on weak topics. Revise the week's content. One subject deep-dive. Rest is important — don't sacrifice it entirely.</div>
+                            </div>
+                            <div class="day-block">
+                                <div class="day-title">Exam Season</div>
+                                <div class="day-schedule">Intensity doubles. Previous year papers, timed practice sets, and formula revision every morning. Consistency beats last-minute cramming every time.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">💡 Things That Actually Help</div>
+                    <div class="detail-card-body">
+                        <div class="tag-group" style="margin-top: 0;">
+                            <span class="tag-element cyan-pill">Solve previous year papers from Class 11 itself</span>
+                            <span class="tag-element cyan-pill">NCERT first, coaching material second</span>
+                            <span class="tag-element cyan-pill">Weekly revision beats daily cramming</span>
+                            <span class="tag-element cyan-pill">One subject strong = confidence anchor</span>
+                            <span class="tag-element cyan-pill">Never skip practicals — easy marks</span>
+                            <span class="tag-element cyan-pill">Study groups work only if everyone is serious</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-strip" style="background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.15);">
+                    <div class="warning-title" style="color: #f87171;">⚠️ The Class 11 Warning</div>
+                    <div class="warning-text">
+                        Class 11 is where most students fall behind — and never fully recover in Class 12. The syllabus is new, the pace is fast, and the jump from Class 10 feels like a wall. Do not take the first few months lightly just because "it doesn't count for boards." It counts for everything that comes after.
+                    </div>
+                </div>
+            </div>
+
+            <div class="locked-footer">
+                <div class="lock-badge">🔒 After Class 12</div>
+                <div class="lock-message">Content coming soon — entrance exams, colleges, and paths ahead.</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
