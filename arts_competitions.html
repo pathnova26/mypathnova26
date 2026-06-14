@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PathNova - Arts & Design Competitions</title>
+  <style>
+    /* Reset & Full Screen Setup */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      /* Background image arts.png yahan set hai */
+      background-image: url('arts.png'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      color: #ffffff;
+      position: relative;
+    }
+
+    /* Top Navigation Area */
+    .top-nav {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end; 
+      box-sizing: border-box;
+    }
+
+    /* Back Button Style - Soft Gold */
+    .back-btn {
+      color: #E6D084; /* Elegant Soft Gold */
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border: 1px solid #E6D084;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 10px rgba(230, 208, 132, 0.2);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .back-btn:hover {
+      background: #E6D084;
+      color: #111827;
+      box-shadow: 0 0 15px rgba(230, 208, 132, 0.5);
+    }
+
+    /* Main Container */
+    .main-container {
+      width: 100%;
+      max-width: 500px;
+      padding: 0 20px 40px 20px;
+      box-sizing: border-box;
+      margin: 0 auto; 
+    }
+
+    /* Page Header */
+    .header-section {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .header-section h1 {
+      font-size: 22px;
+      margin: 0;
+      color: #F8F9FA; /* Pure White with soft tint */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    /* Competition Card Design - White & Elegant Gold */
+    .competition-card {
+      background: rgba(0, 0, 0, 0.25); 
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      /* Thin Soft Gold Border */
+      border: 1px solid rgba(230, 208, 132, 0.5);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+      /* Soft elegant glow instead of harsh yellow */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .competition-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230, 208, 132, 0.8);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(230, 208, 132, 0.2);
+    }
+
+    /* Card Elements Style */
+    .card-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff; /* Pure White */
+      margin: 0 0 5px 0;
+      text-transform: uppercase;
+      /* Soft White/Silver Glow */
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    .card-host {
+      font-size: 14px;
+      color: #d1d5db; /* Light grey/white */
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      font-size: 15px;
+      color: #ffffff; /* Data in white */
+      line-height: 1.5;
+    }
+
+    .info-item strong {
+      color: #E6D084; /* Soft Metallic Gold for Labels */
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* Apply Now Button (Card ke andar right side) */
+    .apply-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: #E6D084; /* Soft Gold */
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .apply-btn:hover {
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="competition_alerts.html" class="back-btn">Back</a>
+  </div>
+
+  <div class="main-container">
+    
+    <div class="header-section">
+      <h1>EXCEL. EXHIBIT. ACHIEVE.</h1>
+    </div>
+
+    <div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+  
+  
+    <div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    </div>
+
+
+<div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    </div>
+
+<div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    </div>
+
+<div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    </div>
+
+
+<div class="competition-card">
+      <div class="card-title">Coming Soon</div>
+      <div class="card-host">Host: Coming Soon</div>
+      
+      <div class="info-grid">
+        <div class="info-item"><strong>Event Mode:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Prizes & Fees:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Apply Dates:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Competition Date:</strong> Coming Soon</div>
+        <div class="info-item"><strong>Result Date:</strong> Coming Soon</div>
+      </div>
+      
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>
