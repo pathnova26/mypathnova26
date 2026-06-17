@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Competitions</title>
+    <style>
+        /* --- Base Setup --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body {
+            /* Aapki save ki hui image set kar di hai */
+            background: url('animation.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* --- Header Section (Upar ka animated portion) --- */
+        .header-section {
+            padding: 50px 5%;
+            position: relative;
+            min-height: 48vh; /* Upar ke background character ke liye space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Clear visibility ke liye shadow */
+        }
+
+        /* Top Right Back Button */
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            background: #FF2E93; /* Creative Rose Pink */
+            color: #ffffff;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-shadow: none;
+        }
+        .back-btn:hover { 
+            background: #FF5E89; 
+            transform: scale(1.05); 
+        }
+
+        /* Intro Text & Quote (Strictly using allowed colors) */
+        .intro-text {
+            max-width: 650px;
+            margin-top: 40px;
+        }
+        .intro-text h1 { 
+            color: #00E676; /* Bright Mint Green */ 
+            font-size: 2.8rem; 
+            margin-bottom: 15px; 
+        }
+        .intro-text p { 
+            font-size: 1.15rem; 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+            color: #FFFFFF; 
+        }
+        .quote-box {
+            font-style: italic; 
+            color: #FF65A3; /* Light Rose Pink */
+            border-left: 4px solid #FF2E93; 
+            padding-left: 15px; 
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* --- Cards Section (Neeche ki khali light-blue jagah) --- */
+        .cards-container { 
+            padding: 10px 5% 60px 5%; 
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            align-items: start; /* 🚀 Cards ko vertically lamba/stretch hone se rokega */
+        }
+
+        /* --- Transparent Dark Glass Card Design --- */
+        /* Light blue bg par dark-transparent glass sabse best text visibility deta hai */
+        .animation-card {
+            background: rgba(15, 25, 35, 0.65); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .animation-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #00E676; /* Hover karne par mint green border */
+        }
+
+        /* Card Typography */
+        .card-header { 
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2); 
+            padding-bottom: 15px; 
+            margin-bottom: 15px; 
+        }
+        .comp-title { color: #00E676; font-size: 1.5rem; margin-bottom: 6px; }
+        .host-name { font-size: 0.95rem; color: #FF65A3; font-weight: 600; }
+
+        .info-list { list-style: none; }
+        .info-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 14px; 
+            font-size: 0.95rem; 
+            align-items: center;
+        }
+        .info-label { color: #A3E635; /* Lime Green */ font-weight: bold; }
+        .info-value { color: #FFFFFF; font-weight: bold; text-align: right; }
+        
+        .badge { background: rgba(0, 230, 118, 0.2); color: #00E676; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; }
+
+        /* Registration Button */
+        .register-btn {
+            display: block;
+            text-align: center;
+            background: #FF2E93;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: 0.3s;
+            text-shadow: none;
+        }
+        .register-btn:hover { 
+            background: #00E676; 
+            color: #000000; 
+            box-shadow: 0 0 15px rgba(0, 230, 118, 0.6); 
+        }
+
+        /* --- Responsive Design (Mobile Device Optimize) --- */
+        @media (max-width: 768px) {
+            .header-section { margin-top: 30px; padding-top: 70px; min-height: 45vh; }
+            .back-btn { top: 15px; right: 20px; font-size: 0.85rem; padding: 8px 15px; }
+            .intro-text h1 { font-size: 2.1rem; }
+            .quote-box { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <a href="competition_alerts.html" class="back-btn">⬅ Back</a>
+        
+        <div class="intro-text">
+            <h1>Breathe Life Into Art</h1>
+            <p>Animation is not the art of drawings that move, but the art of movements that are drawn. It bridges the gap between pure imagination and reality, allowing creators to tell stories that push the boundaries of the physical world.</p>
+            <div class="quote-box">"Animation can explain whatever the mind of man can conceive." – Walt Disney</div>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        
+        <div class="cards-grid">
+
+            <div class="animation-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+            <div class="animation-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+  <div class="animation-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+  
+  
+  
+  
+  
+            </div>
+    </div>
+
+</body>
+</html>
