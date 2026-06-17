@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Competitions</title>
+    <style>
+        /* --- Base Setup --- */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        body {
+            /* Aapki save ki hui image set kar di hai */
+            background: url('coding.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff; /* Main text color white */
+            min-height: 100vh;
+        }
+
+        /* --- Header Section (Laptop ke paas wali jagah) --- */
+        .header-section {
+            padding: 50px 5%;
+            position: relative;
+            min-height: 45vh; /* Upar ka hissa cover karne ke liye */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Dark background pe text highlight karne ke liye */
+        }
+
+        /* Top Right Back Button */
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            background: #FF8C00; /* Dark Orange */
+            color: #ffffff;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            text-shadow: none; /* Button pe shadow nahi chahiye */
+        }
+        .back-btn:hover { background: #FFA500; transform: scale(1.05); }
+
+        /* Intro Text & Quote */
+        .intro-text {
+            max-width: 650px;
+            margin-top: 30px;
+        }
+        .intro-text h1 { color: #FFD700; /* Golden Yellow */ font-size: 2.8rem; margin-bottom: 15px; }
+        .intro-text p { font-size: 1.15rem; line-height: 1.6; margin-bottom: 20px; color: #F8F8F8; }
+        .quote-box {
+            font-style: italic; 
+            color: #FFB347; /* Pastel Orange */
+            border-left: 4px solid #FFB347; 
+            padding-left: 15px; 
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* --- Cards Section (Neeche ki khali jagah) --- */
+        .cards-container { 
+            padding: 20px 5% 60px 5%; 
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            align-items: start; /* 🚀 YEH CARDS KO LAMBA (STRETCH) HONE SE ROKEGA */
+        }
+
+        /* --- Transparent Card Design --- */
+        .coding-card {
+            background: rgba(255, 255, 255, 0.12); /* Glass effect */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .coding-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #FFD700; /* Hover karne par golden border */
+        }
+
+        /* Card Typography */
+        .card-header { 
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3); 
+            padding-bottom: 15px; 
+            margin-bottom: 15px; 
+        }
+        .comp-title { color: #FFD700; font-size: 1.5rem; margin-bottom: 6px; }
+        .host-name { font-size: 0.95rem; color: #FFDAB9; font-weight: 600; }
+
+        .info-list { list-style: none; }
+        .info-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 14px; 
+            font-size: 0.95rem; 
+            align-items: center;
+        }
+        .info-label { color: #FFB347; font-weight: bold; }
+        .info-value { color: #FFFFFF; font-weight: bold; text-align: right; }
+        
+        .badge { background: rgba(255, 255, 255, 0.2); padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; }
+
+        /* Registration Button */
+        .register-btn {
+            display: block;
+            text-align: center;
+            background: #FF8C00;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: 0.3s;
+            text-shadow: none;
+        }
+        .register-btn:hover { background: #FFD700; color: #000; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+
+        /* --- Responsive Design (Mobile Ke Liye) --- */
+        @media (max-width: 768px) {
+            .header-section { margin-top: 40px; padding-top: 60px; min-height: 40vh; }
+            .back-btn { top: 15px; right: 20px; font-size: 0.85rem; padding: 8px 15px; }
+            .intro-text h1 { font-size: 2.2rem; }
+            .quote-box { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <a href="competition_alerts.html" class="back-btn">⬅ Back</a>
+        
+        <div class="intro-text">
+            <h1>Code Your Reality</h1>
+            <p>Coding is the closest thing we have to a superpower. It is the art of turning pure logic into magic, and complex real-world problems into beautiful solutions. Write code today to build tomorrow.</p>
+            <div class="quote-box">"Talk is cheap. Show me the code." – Linus Torvalds</div>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        
+        <div class="cards-grid">
+
+            <div class="coding-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+            <div class="coding-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+ <div class="coding-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+ <div class="coding-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+                
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value badge">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Dates:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Result Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+                <a href="#" class="register-btn" target="_blank">Register Now</a>
+            </div>
+ 
+ 
+ 
+            </div>
+    </div>
+
+</body>
+</html>
