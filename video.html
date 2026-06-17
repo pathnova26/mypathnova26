@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing Competitions - PathNova</title>
+    <style>
+        /* --- Base Setup & Universal Box Sizing --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Background image saved as video.jpg */
+            background: url('video.jpg') no-repeat center top fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222222;
+            min-height: 100vh;
+            /* Moves the content container down into the empty light blue area */
+            padding-top: 40vh; 
+            padding-bottom: 60px;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* --- Header & Intro Section (Transparent Glass Style) --- */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.75); /* Transparent blending shield */
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(107, 139, 75, 0.2); /* Light Olive Green Border */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .video-intro-box {
+            max-width: 72%;
+        }
+
+        .page-title {
+            color: #6B8B4B; /* Olive Green Header */
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        /* --- Inspirational Video Editing Quote Block --- */
+        .quote-box {
+            border-left: 4px solid #D97A6A; /* Coral Left Accent Line */
+            padding-left: 15px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 14.5px;
+            color: #6B8B4B; /* Olive Green Quote Text */
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            font-size: 12px;
+            color: #D97A6A; /* Coral Author Name */
+            margin-top: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Navigation Action Button (Right Side Aligned) --- */
+        .back-btn {
+            background: #6B8B4B; /* Olive Green Base */
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(107, 139, 75, 0.25);
+            border: 1px solid transparent;
+        }
+
+        .back-btn:hover {
+            background: #FFFFFF;
+            color: #6B8B4B;
+            border-color: #6B8B4B;
+            transform: translateY(-2px);
+        }
+
+        /* --- Reusable Responsive Grid System --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            align-content: start;
+        }
+
+        /* --- Beautiful Transparent Card Block --- */
+        .competition-card {
+            background: rgba(255, 255, 255, 0.65); /* Transparent Glass Frame */
+            border: 1px solid rgba(217, 122, 106, 0.25); /* Subtle Coral Border */
+            border-radius: 22px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(107, 139, 75, 0.06);
+            backdrop-filter: blur(15px); /* Glassmorphism depth effect */
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .competition-card:hover {
+            transform: translateY(-6px);
+            border-color: #6B8B4B; /* Glows Olive Green on focus */
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 15px 35px rgba(107, 139, 75, 0.15);
+        }
+
+        /* Card Typography Structural Styling */
+        .card-header {
+            margin-bottom: 18px;
+            border-bottom: 1px dashed rgba(107, 139, 75, 0.2);
+            padding-bottom: 14px;
+        }
+
+        .comp-title {
+            color: #6B8B4B; /* Olive Green Main Title */
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .host-name {
+            font-size: 13.5px;
+            color: #D97A6A; /* Coral Host Label */
+            font-weight: 700;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 22px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+            margin-bottom: 11px;
+            line-height: 1.4;
+        }
+
+        .info-label {
+            color: #555555;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #111111; /* Contrast dark text for placeholders */
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* Format Mode Layout Badge */
+        .mode-badge {
+            background: rgba(107, 139, 75, 0.1);
+            color: #6B8B4B;
+            padding: 2px 9px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* --- Dynamic Action Button Link --- */
+        .register-link {
+            display: block;
+            background: #D97A6A; /* Coral Base Color */
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            border: 1px solid #D97A6A;
+            box-shadow: 0 4px 10px rgba(217, 122, 106, 0.2);
+        }
+
+        .register-link:hover {
+            background: #6B8B4B; /* Converts to Olive Green on interaction */
+            border-color: #6B8B4B;
+            box-shadow: 0 4px 12px rgba(107, 139, 75, 0.2);
+        }
+
+        /* --- Fully Fluid Screens Media Breakpoints --- */
+        @media (max-width: 880px) {
+            body {
+                padding-top: 35vh; /* Shifts text properly on medium/smaller screens */
+            }
+            .header-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .video-intro-box {
+                max-width: 100%;
+            }
+            .back-btn {
+                width: 100%;
+                text-align: center;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr; /* Stack cards inside a single block on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header-section">
+            <div class="video-intro-box">
+                <h1 class="page-title">Video Editing Championship</h1>
+                <p class="intro-text">Video editing is the art of storytelling through visual and audio arrangement. It combines technical precision with creative vision to transform raw footage into impactful, emotion-driven narratives that capture and inspire audiences worldwide. Explore upcoming student challenges, showcase your pacing skills, and frame your imagination!</p>
+                
+                <div class="quote-box">
+                    <p class="quote-text">"Good editing is when you don't notice it. Great editing is when you feel it."</p>
+                    <p class="quote-author">— Reusable Editing Paradigm</p>
+                </div>
+            </div>
+            
+            <a href="competition_alerts.html" class="back-btn">← BACK TO ALERTS</a>
+        </div>
+
+        
+        <div class="cards-grid">
+
+            <div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+<div class="cards-grid">
+
+            <div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+
+<div class="cards-grid">
+
+            <div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+<div class="cards-grid">
+
+            <div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+<div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+
+<div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+
+<div class="competition-card">
+                <div class="card-header">
+                    <h3 class="comp-title">Coming Soon</h3>
+                    <div class="host-name">Host: Coming Soon</div>
+                </div>
+
+                <ul class="info-list">
+                    <li class="info-row">
+                        <span class="info-label">1. Event Format:</span>
+                        <span class="info-value"><span class="mode-badge">Coming Soon</span></span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">2. Prizes & Fees:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">3. Registration Window:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">4. Competition Date:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                    <li class="info-row">
+                        <span class="info-label">5. Results Declaration:</span>
+                        <span class="info-value">Coming Soon</span>
+                    </li>
+                </ul>
+
+                <a href="#" target="_blank" class="register-link">Register Now</a>
+            </div>
+            
+            
+            
+            </div> </div>
+
+</body>
+</html>
