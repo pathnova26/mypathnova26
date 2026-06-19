@@ -307,7 +307,82 @@
             font-size: 16px;
             font-weight: 600;
             color: #ffffff;
-        }
+        }/* --- PCB Express Card Layout & Styling --- */
+.pcb-express-card {
+    background: rgba(20, 30, 45, 0.6); /* Transparent dark background to match others */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 230, 118, 0.2); /* Soft green tint border for PCB/Bio vibe */
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 20px; /* Upper card se distance banane ke liye */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover effect to match the active talent pipeline card */
+.pcb-express-card:hover {
+    transform: translateY(-5px);
+    border-color: #00E676; /* Glowing mint green border on hover */
+    box-shadow: 0 12px 40px rgba(0, 230, 118, 0.15);
+}
+
+/* Icon Box setup similar to left cards */
+.pcb-icon-box {
+    background: rgba(0, 230, 118, 0.15);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.pcb-icon {
+    font-size: 1.4rem;
+}
+
+/* Typography */
+.pcb-title {
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.pcb-desc {
+    color: #b0c4de; /* Readable light blue-grey text */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Button link */
+.pcb-link-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #00E676; /* Bright mint green for actions */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.pcb-link-btn:hover {
+    color: #ffffff;
+}
+
+.pcb-link-btn .arrow {
+    margin-left: 8px;
+    transition: transform 0.2s;
+}
+
+.pcb-link-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
     </style>
 </head>
 <body>
