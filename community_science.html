@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Sc (Hons) Community Science - PCB Express</title>
+    <style>
+        /* --- Base Settings & New Sky Blue Theme --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Sky Blue Background matching logo */
+            background: linear-gradient(135deg, #87CEEB 0%, #E0F0FF 100%);
+            background-attachment: fixed;
+            color: #5A3E2B; /* Change to Dark Brown (No Green, No Previous Color) */
+            font-size: 18px; /* Slightly larger text */
+            line-height: 1.7;
+            padding: 40px 5%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- Headings --- */
+        h1, h2, h3 {
+            color: #1D4ED8; /* Royal Blue */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-bottom: 5px solid #1D4ED8;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid rgba(29, 78, 216, 0.2);
+            padding-bottom: 10px;
+        }
+
+        /* --- Content Cards --- */
+        .section-card {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(29, 78, 216, 0.1);
+        }
+
+        /* --- Tables for Structured Data --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        th {
+            background-color: rgba(29, 78, 216, 0.08);
+            color: #1D4ED8;
+            font-weight: 700;
+            width: 35%;
+        }
+
+        tr:hover td {
+            background-color: rgba(29, 78, 216, 0.02);
+        }
+
+        /* --- Custom Inputs Styling (To remind where to edit) --- */
+        .placeholder-text {
+            color: #5A3E2B; /* Light gray for placeholders */
+            font-style: italic;
+        }
+
+        /* --- Lists --- */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        ul li::before {
+            content: "🔹"; /* Blue diamond bullet */
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 4px;
+        }
+
+        /* --- Buttons --- */
+        .btn-link {
+            display: inline-block;
+            background: #1D4ED8;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-link:hover {
+            background: #1E3A8A; /* Darker blue on hover */
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+        }
+
+        /* --- PCB Express Verdict Box --- */
+        .verdict-box {
+            background: linear-gradient(135deg, #0F172A 0%, #5A3E2B 100%);
+            color: #F8FAFC;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-bottom: 5px solid #3B82F6;
+        }
+
+        .verdict-box h2 {
+            color: #60A5FA; /* Light Blue for contrast in dark box */
+            border: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .score-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.15rem;
+        }
+
+        .star-icon {
+            color: #FFD700;
+            margin-right: 8px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            th, td {
+                display: block;
+                width: 100%;
+            }
+            th {
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+            td {
+                padding-top: 5px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1> Bsc (Hons) in Community science</h1>
+
+    <div class="section-card">
+        <h2>1. Course Overview & Duration</h2>
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <td class="placeholder-text">Bsc (Hons) in community science 
+                Previously known as Bsc (Hons) in Home science</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td class="placeholder-text">4 years (8 Semester)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-card">
+        <h2>2. Eligibility Criteria</h2>
+        <table>
+            <tr>
+                <th>Subject Required</th>
+                <td class="placeholder-text">PCM,PCB,
+                Arts </td>
+            </tr>
+            <tr>
+                <th>Minimum Marks</th>
+                <td class="placeholder-text">50 percent in each subject</td>
+            </tr>
+            <tr>
+                <th>Exams Accepted</th>
+                <td class="placeholder-text">CUET (UG)
+                University entrance text</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-card">
+        <h2>3. Top Government Colleges</h2>
+        <ul>
+            <li><span class="placeholder-text">1.Dr Rajendra Parsad Central Agriculture University,Pusa</span></li>
+            <li><span class="placeholder-text">University of Delhi</span></li>
+            <li><span class="placeholder-text">Alligarh Muslim University</span></li>
+            <li><span class="placeholder-text">[College Name 4]</span></li>
+            <li><span class="placeholder-text">[College Name 5]</span></li>
+        </ul>
+        <a href="#" class="btn-link">Explore More Government Colleges →</a>
+    </div>
+
+    <div class="section-card">
+        <h2>4. About This Course</h2>
+        <ul>
+            <li><span class="placeholder-text">Community science is a multidisciplinary course that focus on improving the quality of life of an individuals,families and communities.</span></li>
+            <li><span class="placeholder-text">Student study
+            1.Human Nutrition
+            2.Food science
+            3.Child development 
+            4.Resources Management and consumer Sciences
+            5.Textile and Fashion
+            6.Extension Education and community Management
+            7.Psychology
+         8.Community Development</span></li>
+            <li><span class="placeholder-text">Science+Management+Social imapct+Entrepreneirship</span></li>
+            <li><span class="placeholder-text">It is not just about Home science.
+            It is also about improving lives, building communities and creating opportunity for yourself and other. </span></li>
+     <li><span class="placeholder-text">If you like 
+     Biology and Health
+     2.Working with people
+     3.Nutrition and wellness
+     4.Child development
+     5.Entrepreneurship
+     6.Creating social imapact</span></li>  
+      
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2>5. Required Skills for Best Placement</h2>
+        <ul>
+            <li><span class="placeholder-text">1) Management and Designing Tools
+     
+    </span></li>
+    
+   <li><span class="placeholder-text"> a) Auto CAD : You can learn this software to design house  maps and plan interior spaces. </span></li>    
+     <li><span class="placeholder-text">b) Ergonomic Planning : You learn how to arrange furniture and tools to save energy and reduce body fatigue.</span></li>     
+            <li><span 
+            class="placeholder-text">2) Digital and content skills. 
+              </span></li>
+      <li><span class="placeholder-text">a) Social Media Marketing : Many health,food and clothing brand look for people who can handlen Instagram, YouTube, or LinkedIn</span></li>     
+          <li><span class="placeholder-text">b) UI/UX
+          design : Community science teaches you how humans intract with products.If you learn UI/UX design (tools like figma) ,you can design easy to use app and website.</span></li>  
+            <li><span class="placeholder-text">3.Profesional Business Skills. </span></li>
+  <li><span class="placeholder-text"</span> a) Data analysis 
+  b) Grant Writing</li>          
+            
+            <li><span class="placeholder-text">4) Creative and Modern Tech skills. </span></li>
+         <li><span class="placeholder-text">a) Digital fashion illustration</span></li>   
+           
+            <li><span class="placeholder-text">5) E-Commerce Management</span></li>
+         <li><span class="placeholder-text">6) Nutrition and lab skills</span></li>    
+       
+        <li><span class="placeholder-text"> a) Diet Planning: You use software and charts to calculate calories and plan specific diets for sick people</span></li>
+        <li><span class="placeholder-text"> b) Food Preservation : You can  learn chemical and natural ways to freeze,dry and pack food so it does not spoil. </span></li>
+
+<li><span class="placeholder-text">7) Media and communication skills
+</span></li>    
+  
+   <li><span class="placeholder-text">a). Audio visual editing
+   b) Psychological Testing
+</span></li>                  
+  <li><span class="placeholder-text">8) Textile testing. 
+</span></li>    
+        </ul>
+    </div>
+
+    <div class="section-card">
+        <h2>6. Career Opportunities & Job Sectors</h2>
+        <table>
+            <tr>
+                <th>What Can You Do?</th>
+                <td class="placeholder-text">Counselor,Clinical Psychologist,Curriculum developer etc. </td>
+            </tr>
+            <tr>
+                <th>Government Jobs</th>
+                <td class="placeholder-text"> 1.Human development and family studies. 
+           a) Child developer project officer or supervisor in NGOs / Government department.  
+           (b) Counselor in child clinics or guidence clinics
+           (c) Clinical psychologist
+          (d) Early childhood trainer
+           (e) Curriculum developer. 
+                </td>
+       <td class="placeholder-text"> 2.Goverment Research and Think Tanks
+       a) Research assistant in NCERT, ICMR, NIPCCD(National institute of Public cooperation and childhood development)
+                </td>      
+       <td class="placeholder-text"> 3.Ministry of social Justice and welfare
+       (a) Social welfare officer
+       (b) Rehabilitation counsellor
+                </td>         
+       <td class="placeholder-text"> 4.Higher Education and Teaching
+       (a) Assistant professor /Lecturer
+                </td>                 
+       <td class="placeholder-text"> 5.Food and Nutrition Department. 
+       (a) Food safety officer /Food inspector.
+       (b) Food safety and standards authority of india (FSSAI)</td>       
+    <td class="placeholder-text"> 6.Government Hospital (Health care sector)
+    (a) Government Dietician/Nutritions i.e in AIIMS</td>       
+   <td class="placeholder-text"> 7.Sports and defense sector 
+   (a) Sports authority of india as a sports nutritionist
+   (b) Indian army /Defense food researcher laboratory</td>       
+                                            
+  <td class="placeholder-text">6.Food corporation of India. 
+  - FCI stores food grains. The techanical officer is responsible for managing warehouses, checking the quality of food grains and maintaining their records. 
+                </td>
+     <td class="placeholder-text">7. Government Laboratories/Research s
+     
+     - Techanical assistant /Scientific officer in Indian Council of medical research and National Institute of Nutrition or in
+     Central Food Technological Research Institute
+                </td>
+       <td class="placeholder-text">8.Textile and Apparel Designing. 
+       (a) Ministery of Textiles
+       - Handicraft/Textile Marketing Officer. 
+    (b) Technical assistant
+    (c) Designer in weavers service centres. 
+                </td>
+  <td class="placeholder-text">9.Government Fashion/ Design Institutes. [Teaching and Training]
+  (a) NIFT [National Institute of Fashion Technology]
+  (b) NID [National Institute of Design]
+  (c) IIT [Industrial Training Institutes]
+    </td>
+   <td class="placeholder-text">10.Government Brands and Corporations
+   [Retail and Management]
+   (a) Khadi and Village Industries Commission (KVIC)
+   (b) Cooptex/CCIC [Central cottage Industries corporation]
+    </td>
+  <td class="placeholder-text">11.
+  Defence and Quality control
+  [Techanical Textile]
+  (a) Indian army/ Ordnance factories
+  (b) BIS [Bureau of Indian Standards]
+    </td> 
+   <td class="placeholder-text">12.
+   Government Museums and Cultural Department
+   (a) Textile conservative /Curator
+    </td>  
+    <td class="placeholder-text">13.
+    Resource Management and Consumer
+    (a) Consumer Protection Officer in Consumer Affairs Department. 
+    (b) District Consumer Forum Executive. 
+    
+   
+    </td>   
+   <td class="placeholder-text">14.
+   Ministry of Tourism and Urban Development [Interior and Housing]
+   (a) Government Interior design Estate Officer /Property Manager
+   
+    </td>    
+ <td class="placeholder-text">15.
+ Government Hospitality Management. 
+ (a) Hospitality Manager
+ (b) Government Event Officer
+ </td>    
+ <td class="placeholder-text">16.
+ Eco- Management and Sustainability Sector 
+ (a) Resource Conservation Officer
+ 
+ </td>  
+<td class="placeholder-text">17.
+Extension Education and Communication
+(a) Government Journalist/Reporter 
+(b) Public Relations Officer 
+ 
+ </td>  
+   
+   <td class="placeholder-text">18.
+   Ministry of Agriculture and Rural Development
+   (a) Extension Officer /Rural Development Officer 
+   (b) Krishi Vigyan Kendra Scientist
+ 
+ </td>         
+  <td class="placeholder-text">19.
+  Government Health and Awarness Programmes. 
+  (a) Mass Media Officer /Health Education. 
+ 
+ </td>   
+     </tr>  
+        
+            <tr>
+                <th>Private Jobs</th>
+                <td class="placeholder-text">[Private sectors ke naam likhein]</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-card">
+        <h2>7. Salary Structure</h2>
+        <table>
+            <tr>
+                <th>Freshers</th>
+                <td class="placeholder-text">[Starting salary likhein]</td>
+            </tr>
+            <tr>
+                <th>With Experience (3-5 Yrs)</th>
+                <td class="placeholder-text">[Experienced salary likhein]</td>
+            </tr>
+            <tr>
+                <th>Top Highest Roles</th>
+                <td class="placeholder-text">[Maximum expected salary likhein]</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section-card">
+        <h2>8. Can You Start Your Own Business?</h2>
+        <table>
+            <tr>
+                <th>Is it possible?</th>
+                <td class="placeholder-text">Yes</td>
+            </tr>
+            <tr>
+                <th>Business Ideas</th>
+                <td class="placeholder-text">Nutrition and Diet consulting,
+                Child Development Centre
+                ,Preschool /Day care Centre
+                , Food and Nutritional Startup
+                , Boutique and Textile Business,
+                Wellness coaching
+                , Online Health Content Creation
+                , Community development in NGOs. </td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="verdict-box">
+        <h2>PCB Express Score</h2>
+        <div class="score-grid">
+            <div class="score-item"><span class="star-icon">⭐</span> Salary: 8/10</div>
+            <div class="score-item"><span class="star-icon">⭐</span> Growth: 9/10</div>
+            <div class="score-item"><span class="star-icon">⭐</span> Government Jobs: 8/10</div>
+            <div class="score-item"><span class="star-icon">⭐</span> Entrepreneurship: 7/10</div>
+            <div class="score-item"><span class="star-icon">⭐</span> Work-Life Balance: 8/10</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
