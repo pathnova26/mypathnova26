@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Sc (Hons) Geology</title>
+    <style>
+        /* --- Base Settings & Background (Same as index.html) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0B0F2B 0%, #1B1C47 50%, #0F1335 100%);
+            background-attachment: fixed;
+            color: #FFFFFF;
+            min-height: 100vh;
+            padding: 30px 5%;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* --- Back Button Style --- */
+        .back-nav {
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #FFFFFF;
+            color: #0B0F2B;
+            transform: translateX(-5px);
+        }
+
+        /* --- Top Heading with Golden Border & Transparent Card --- */
+        .main-header-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid #D4AF37; /* ✅ Golden Border */
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .main-header-card h1 {
+            font-size: 2.5rem; /* ✅ Bada size */
+            color: #FFFFFF; /* ✅ White Color */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* --- Responsive Grid Layout for Cards --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* ✅ Har screen par automatic fit */
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* --- Standard Transparent Card Design --- */
+        .card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: #FFD700; /* Subtle Gold for headings */
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #E0E6ED;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* --- Beautiful Action Buttons inside Cards --- */
+        .card-btn {
+            display: inline-block;
+            text-align: center;
+            background: linear-gradient(90deg, #1E3A8A, #3B82F6);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 11px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-btn:hover {
+            background: linear-gradient(90deg, #3B82F6, #1D4ED8);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* --- Bottom Full Info Cards Layout --- */
+        .bottom-full-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .bottom-full-card h2 {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        /* Business Info List Style */
+        .business-list {
+            list-style: none;
+        }
+        .business-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .business-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+        }
+
+        /* Express Score Design */
+        .score-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .score-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        /* --- Responsive Viewports Media Queries --- */
+        @media (max-width: 768px) {
+            body { padding: 20px 3%; }
+            .main-header-card h1 { font-size: 1.8rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .bottom-full-card h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="back-nav">
+        <a href="express.html" class="back-btn">← Back to Express</a>
+    </div>
+
+    <div class="main-header-card">
+        <h1>B.Sc (Hons) Geology</h1>
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="card">
+            <div>
+                <h2>Duration</h2>
+                <p>B.Sc Geology is a three to four year graduate programe.</p>
+            </div>
+            <div style="font-size: 1.3rem; font-weight: bold; color: #FFFFFF; margin-bottom: 10px;">
+                3-4 Years [6-8 Semester]
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Eligibility Criteria</h2>
+                <p style="margin-bottom: 5px;">• <strong>Stream:</strong> PCB, PCM, or Arts</p>
+                <p style="margin-bottom: 5px;">• <strong>Min Marks:</strong> 50% for General</p>
+                <p style="margin-bottom: 5px;">• <strong>Admission:</strong> CUET / Entrance Exam</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Course Overview</h2>
+                <p>B.Sc. (Hons.) Geology is the study of the Earth, its structure, rocks, minerals, fossils, natural resources, and geological processes that have shaped our planet over millions of years.</p>
+            </div>
+            <a href="overview_details.html" class="card-btn">Read More</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>What Students Study</h2>
+                <p>In this Students learn about:
+ Rocks and Minerals, Fossils and Ancient Life ,Earthquakes and Geological Structures, Groundwater Resources, Environmental Issues ,Mineral & Petroleum Exploration
+ ,Geological Mapping, Field Surveys and Practical Training.</p>
+            </div>
+            <a href="study_details.html" class="card-btn">Read More</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Is This Course For You?</h2>
+                <p> ❤If you're curious about the planet beneath your feet and enjoy both science and fieldwork, Geology can be an exciting and rewarding career path .</p>
+            </div>
+            <a href="guide_details.html" class="card-btn">Read Full Guide</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Government Colleges</h2>
+                <p> Pursue these course from india's top premium government institutes.</p>
+            </div>
+            <a href="gov_colleges.html" class="card-btn">See More</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Private Colleges</h2>
+                <p> Top private universities that offer an excellent placement track record and high-tech infrastructure with advance laboratories.</p>
+            </div>
+            <a href="private_colleges.html" class="card-btn">Explore Colleges</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Average Salary</h2>
+                <p> Details of the starting and highest salary package scales in modern industries for freshers and experienced professionals .</p>
+            </div>
+            <a href="salary_details.html" class="card-btn">Check Salary Scale</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Government Jobs</h2>
+                <p> 🌸One of the biggest advantages of Geology is that it opens opportunities in mining, petroleum, groundwater, environment, disaster management, and scientific research, making it a versatile science career.</p>
+            </div>
+            <a href="gov_jobs.html" class="card-btn">View Gov Jobs</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Private Jobs</h2>
+                <p> Tata Steel
+• Vedanta
+• Hindalco
+• Reliance Industries
+• Cairn Oil & Gas
+• Adani Group
+• L&T
+• WAPCOS
+• Environmental Consulting Firms
+• Mining & Mineral Exploration Companies.</p>
+            </div>
+            <a href="private_jobs.html" class="card-btn">View Private Jobs</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Placement Skills</h2>
+                <p> 🤗 GIS Software (ArcGIS, QGIS) ,Remote Sensing, AutoCAD, GPS & Geological Mapping, Basic Data Science / Python for Geosciences.</p>
+            </div>
+            <a href="skills_details.html" class="card-btn">Learn Skills</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h2>Internships</h2>
+                <p>Live practical learning to gain exposure with top industries, laboratory centres and corporate organizations .</p>
+            </div>
+            <a href="internship_details.html" class="card-btn">Find Internships</a>
+        </div>
+
+    </div>
+    <div class="bottom-full-card">
+        <h2>Can You Start Your Own Business?</h2>
+        <p style="margin-bottom: 15px;">Yes,Unlike some healthcare courses, Geology graduates usually don't open clinics or centers. Instead, they often build consulting, surveying, environmental, GIS, or exploration businesses that serve industries, government projects, and infrastructure companies :</p>
+        <ul class="business-list">
+            <li><strong>🎯Geological Consultancy Services:</strong>A geological consultant uses geological knowledge to help clients make safe and informed decisions about land, water, minerals, and natural resources. After gaining experience, geology graduates can start their own consultancy firm and provide these services to industries, builders, farmers, and government projects.</li>
+            
+            <li><strong> Groundwater survey and borewell consultancy:</strong>These professionals study underground water resources and help farmers, industries, housing projects, and communities find suitable locations for borewells, reducing the risk of failed drilling and unnecessary costs.</li>
+            <li><strong> Environmental consulting firm:</strong> Environmental consultants study how a project may affect the environment and suggest solutions to protect natural resources, reduce pollution, and ensure sustainable development.</li>
+            <li><strong> GIS and Remote Sensing Services:</strong> GIS and Remote Sensing professionals use satellite data and mapping technology to study the Earth's surface and help governments, industries, and researchers make better decisions.</li>
+          
+            <li><strong> Land and Site Investigation Services :</strong> Before building a house, bridge, road, dam, factory, or mining project, experts study the land to understand what's beneath the surface. This helps prevent future problems such as land sinking, foundation failure, landslides, or water-related issues.</li>
+        </ul>
+    </div>
+
+    <div class="bottom-full-card" style="margin-bottom: 50px;">
+        <h2>PCB Express Series Score</h2>
+        <p>Is course ke overall analysis aur metrics ka report card score niche diya gaya hai:</p>
+        <div class="score-flex">
+            <div class="score-tag" style="border-color: #3B82F6;">Salary: 8/10</div>
+            <div class="score-tag" style="border-color: #10B981;">Growth: 9/10</div>
+            <div class="score-tag" style="border-color: #F59E0B;">Government Jobs: 8/10</div>
+            <div class="score-tag" style="border-color: #EF4444;">Entrepreneurship: 7/10</div>
+            <div class="score-tag" style="border-color: #EC4899;">Work-Life Balance: 8/10</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
