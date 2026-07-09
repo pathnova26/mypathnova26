@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova Labs - Explore Biology</title>
+    <style>
+        /* --- Premium Dark & Gold Theme Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Exact premium dark background matching your main website */
+            background: linear-gradient(135deg, #090d16 0%, #111827 100%);
+            background-attachment: fixed;
+            color: #F3F4F6;
+            padding: 20px 5% 60px 5%;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Clickable Navigation Header --- */
+        .nav-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 50px;
+            padding: 15px 0;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #9CA3AF;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: #f59e0b; /* Golden hover state */
+            color: #090d16;
+            border-color: #f59e0b;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            border-color: #f59e0b;
+        }
+
+        /* --- Welcome Text Section (No Card Layout) --- */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 10px;
+        }
+
+        .welcome-section h1 {
+            font-size: 3.2rem; /* Big, clear font size */
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-section .subtitle {
+            font-size: 1.6rem;
+            color: #9CA3AF;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .welcome-section .quote {
+            font-size: 1.25rem;
+            color: #f59e0b; /* Golden Quote Accent */
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* --- Smart Equal-Sized 3-Column Grid --- */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Max 3 cards per row on desktop */
+            gap: 30px; /* Uniform space between cards */
+            align-items: stretch; /* Forces all cards in a row to have equal height */
+        }
+
+        /* --- Golden Premium Cards --- */
+        .lab-card {
+            background: #111827; /* Dark matching base */
+            border: 2px solid #d4af37; /* Clean Golden Border */
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elegant background glow on hover */
+        .lab-card:hover {
+            transform: translateY(-8px);
+            border-color: #f59e0b;
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.25);
+        }
+
+        /* Subtle top gold indicator line inside card */
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f59e0b);
+        }
+
+        /* Card Text Content Formatting */
+        .card-content h2 {
+            color: #FFFFFF;
+            font-size: 1.8rem; /* Large font size for header as requested */
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .card-content p {
+            color: #D1D5DB;
+            font-size: 1.15rem; /* Large readable text size */
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Interactive Tags / Action Buttons inside cards */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto; /* Pushes content to the bottom of the block */
+        }
+
+        .explore-link {
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .lab-card:hover .explore-link {
+            gap: 10px;
+            color: #FFFFFF;
+        }
+
+        .badge {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        /* --- Responsive Design Layout --- */
+        @media (max-width: 1024px) {
+            .labs-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
+            }
+            .welcome-section h1 { font-size: 2.6rem; }
+        }
+
+        @media (max-width: 680px) {
+            .labs-grid {
+                grid-template-columns: 1fr; /* 1 card fully stacked on mobile */
+            }
+            .welcome-section h1 { font-size: 2.1rem; }
+            .welcome-section .subtitle { font-size: 1.25rem; }
+            .nav-header { gap: 8px; }
+            .nav-btn { padding: 8px 16px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="nav-header">
+        <a href="index.html" class="nav-btn active">Home</a>
+        <a href="#about" class="nav-btn">About Labs</a>
+        <a href="#levels" class="nav-btn">Levels</a>
+        <a href="#whats-new" class="nav-btn">What's New</a>
+        <a href="#feedback" class="nav-btn">Feedback</a>
+        <button onclick="window.history.back()" class="nav-btn">Back</button>
+    </header>
+
+    <section class="welcome-section">
+        <h1>PathNova Labs</h1>
+        <p class="subtitle">Explore biology from Basics to Research</p>
+        <p class="quote">“Making biology easy for students from every background.”</p>
+    </section>
+
+    <main class="labs-grid">
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Cell Verse</h2>
+                <p>Explore the world of cells, foundational structures, and interactive cellular scaling mechanisms built for NEET and pre-university modules.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Core Bio</span>
+                <a href="#" class="explore-link">Enter Verse →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Bio Verse</h2>
+                <p>Learn the fundamentals of biology from basic life mechanisms up to complex macro ecological frameworks step-by-step.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Basics</span>
+                <a href="#" class="explore-link">Enter Verse →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Gene Verse</h2>
+                <p>Understand genes, chromosomal mapping, rules of heredity, and advanced modern molecular inheritance models clearly.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Genetics</span>
+                <a href="#" class="explore-link">Enter Verse →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Bio Code</h2>
+                <p>Where biology meets coding with AI. Discover computational modeling, basic sequences analytics, and smart programmatic layouts.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">AI Tech</span>
+                <a href="#" class="explore-link">Open Terminal →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Research Spotlight</h2>
+                <p>Discover current scientific research, breakthroughs, real-world case studies, and advanced biotechnological discoveries happening globally.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Advanced</span>
+                <a href="#" class="explore-link">Read Studies →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Interactive Biology Tools</h2>
+                <p>Engage with personalized chapter quizzes, dynamic biological flashcards, unit calculators, and premium visual learning simulators.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Interactive</span>
+                <a href="#" class="explore-link">Launch Tools →</a>
+            </div>
+        </div>
+
+        <div class="lab-card">
+            <div class="card-content">
+                <h2>Basic Diagrams</h2>
+                <p>High-definition structural maps, labeled biological graphics, and simplified illustrations designed for clean exam execution.</p>
+            </div>
+            <div class="card-footer">
+                <span class="badge">Visuals</span>
+                <a href="#" class="explore-link">View Maps →</a>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>
