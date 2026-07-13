@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova Labs - Cell Verse</title>
+    <style>
+        /* Matching the dark theme from IMG_20260709_083915.jpg */
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .back-btn {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid #374151;
+            padding: 6px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .back-btn:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Famous quote section */
+        .quote-box {
+            text-align: center;
+            margin: 20px 0 40px 0;
+            padding: 0 10px;
+        }
+
+        .famous-quote {
+            color: #f59e0b;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .intro-text {
+            color: #9ca3af;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Interactive Topics Menu */
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Clickable topic styles matching the landing page cards */
+        .topic-item {
+            background-color: #111827;
+            border: 1px solid #f59e0b;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Hover animation effects */
+        .topic-item:hover {
+            transform: translateY(-2px);
+            background-color: #1f2937;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .arrow {
+            color: #f59e0b;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .topic-item:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Back Navigation to main page -->
+        <a href="index.html" class="back-btn">← Back to Dashboard</a>
+
+        <h1>Cell: Structure & Function</h1>
+        
+        <!-- Introduction & Famous Quote Section -->
+        <div class="quote-box">
+            <div class="famous-quote">"Omnis cellula e cellula — All cells arise from pre-existing cells."</div>
+            <div class="intro-text">Welcome to the Cell Verse dashboard. Cells are the fundamental structural and functional building blocks of all living organisms. Explore the modules below to master everything from basic microscopic concepts to advanced applications.</div>
+        </div>
+
+        <!-- Clickable Topics List from 1000264135.jpg -->
+        <div class="topic-list">
+            
+            <a href="basic_explanation.html" class="topic-item">
+                <span>Basic Explanation <span class="badge">Comic Format</span></span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-diagrams.html" class="topic-item">
+                <span>Important Diagrams with Animation</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-quizzes.html" class="topic-item">
+                <span>Full MCQ & Quizzes <span class="badge">Includes PYQs</span></span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-applications.html" class="topic-item">
+                <span>Real World Applications</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-key-points.html" class="topic-item">
+                <span>Key Points <span class="badge">1-Minute Revision</span></span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-ncert.html" class="topic-item">
+                <span>NCERT Highlight</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-mnemonics.html" class="topic-item">
+                <span>Memory Trick / Mnemonics</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-scientists.html" class="topic-item">
+                <span>Meet the Scientists</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-research.html" class="topic-item">
+                <span>Research Spotlight</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-career.html" class="topic-item">
+                <span>Career Connection</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <a href="cell-faqs.html" class="topic-item">
+                <span>Frequently Asked Questions</span>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- FUTURE TOPICS GO HERE -->
+
+        </div>
+    </div>
+
+</body>
+</html>
