@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioVerse - PathNova Labs</title>
+    <style>
+        /* --- Premium Website Dark & Gold Theme Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #090d16 0%, #111827 100%);
+            background-attachment: fixed;
+            color: #F3F4F6;
+            padding: 20px 5% 60px 5%;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Clickable Navigation Bar --- */
+        .nav-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 10px 0;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f59e0b; /* Golden text */
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #d4af37;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #f59e0b;
+            color: #090d16;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+            transform: translateX(-3px);
+        }
+
+        /* --- Information & Features Intro Block --- */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-section h1 {
+            font-size: 3rem;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-section p.description {
+            font-size: 1.25rem;
+            color: #9CA3AF;
+            max-width: 850px;
+            margin: 0 auto 35px auto;
+            line-height: 1.7;
+        }
+
+        /* Student Features Mini Grid */
+        .features-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-tag {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .feature-tag span {
+            color: #f59e0b;
+        }
+
+        /* --- Dynamic Equal-Sized 3-Column Grid --- */
+        .bioverse-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row on desktop */
+            gap: 25px;
+            align-items: stretch; /* Guarantees every card in a row scales to the exact same height */
+        }
+
+        /* --- Uniform Premium Golden Cards --- */
+        .unit-card {
+            background: #111827;
+            border: 2px solid #d4af37; /* Consistent Golden Border */
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .unit-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);
+            border-color: #f59e0b;
+        }
+
+        /* Large Header Inside Card */
+        .unit-card h2 {
+            color: #FFFFFF;
+            font-size: 1.55rem; /* Larger prominent header text */
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            font-weight: 700;
+        }
+
+        /* Interactive Chapter List Items */
+        .chapter-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chapter-item a {
+            color: #D1D5DB;
+            text-decoration: none;
+            font-size: 1.1rem; /* Clear, highly readable font size */
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+            transition: all 0.2s ease;
+        }
+
+        .chapter-item a span.bullet {
+            color: #f59e0b;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .chapter-item a:hover {
+            color: #f59e0b;
+            transform: translateX(4px);
+        }
+
+        /* --- Smart Mobile Responsiveness Layout --- */
+        @media (max-width: 1024px) {
+            .bioverse-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
+            }
+            .features-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 680px) {
+            .bioverse-grid {
+                grid-template-columns: 1fr; /* Stacks 1 single card perfectly wide on mobile layout */
+            }
+            .features-showcase {
+                grid-template-columns: 1fr;
+            }
+            .intro-section h1 { font-size: 2.2rem; }
+            .intro-section p.description { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="nav-header">
+        <a href="labs.html" class="back-btn">← Back to Labs</a>
+    </header>
+
+    <section class="intro-section">
+        <h1>Welcome to BioVerse</h1>
+        <p class="description">
+            Master the entire Class 11 & 12 foundational Biology framework systematically. Built with premium structural visual models designed specifically to help students bridge the core concepts between school diagnostics, NEET preparation, and core academic milestones.
+        </p>
+
+        <div class="features-showcase">
+            <div class="feature-tag"><span>🎨</span> Comic Explanations</div>
+            <div class="feature-tag"><span>🧬</span> Animated Diagrams</div>
+            <div class="feature-tag"><span>⏰</span> 1-Min Key Points</div>
+            <div class="feature-tag"><span>🧠</span> Memory Mnemonics</div>
+        </div>
+    </section>
+
+    <main class="bioverse-grid">
+
+        <div class="unit-card">
+            <h2>Cell: Structure & Functions</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <a href="cell-unit-of-life.html"><span class="bullet">↳</span> Cell: The Unit of Life</a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#"><span class="bullet">↳</span> Biomolecules</a>
+                </li>
+                <li class="chapter-item">
+                    <a href="#"><span class="bullet">↳</span> Cell Cycle & Cell Division</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Diversity in Living World</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> The Living World</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Biological Classification</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Plant Kingdom</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Animal Kingdom</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Flowering Plants Overview</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Morphology of Flowering Plants</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Anatomy of Flowering Plants</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Structural & Sexual Rep. in Plants</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Plant Physiology</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Photosynthesis in Higher Plants</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Respiration in Plants</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Plant Growth & Development</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Animal Biology</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Structural Organisation in Animals</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Human Physiology Core Modules</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Reproduction Models</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Human Reproduction System</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Reproductive Health Principles</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Reproduction in Organisms</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Genetics & Evolution</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Principles of Inheritance & Variation</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Molecular Basis of Inheritance</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Structural Evolution Track</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Bio in Human Welfare</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Human Health & Disease</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Microbes in Human Welfare</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Biotechnology Track</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Biotechnology: Principles & Processes</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Biotechnology and its Applications</a></li>
+            </ul>
+        </div>
+
+        <div class="unit-card">
+            <h2>Ecology & Environment</h2>
+            <ul class="chapter-list">
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Organisms & Populations</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Ecosystem Dynamics</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Biodiversity & its Conservation</a></li>
+                <li class="chapter-item"><a href="#"><span class="bullet">↳</span> Environmental Concerns & Issues</a></li>
+            </ul>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>
