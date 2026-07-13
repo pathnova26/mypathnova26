@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathNova - Basic Explanation</title>
+    <style>
+        /* Matching the deep blue background from 1000264138.jpg */
+        body {
+            background-color: #151636; /* Deep navy blue */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Header & Navigation */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        /* EXTRA FEATURE: Student Progress Bar */
+        .progress-container {
+            background-color: #20224a;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #2d3063;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: #e5e7eb;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: #151636;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            width: 0%; /* Updates as student completes topics */
+            height: 100%;
+            background-color: #ef4444; /* Red matching your border style */
+            border-radius: 4px;
+        }
+
+        /* Grid Layout for Topics */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        /* Matching the cards from 1000264138.jpg (Red border, dark inner) */
+        .topic-card {
+            background-color: #21234c; /* Slightly lighter than bg */
+            border: 1px solid #ef4444; /* Red border from your screenshot */
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            min-height: 80px;
+            position: relative;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+            background-color: #272a5a;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* EXTRA FEATURE: Time Estimates */
+        .time-tag {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            background: rgba(0,0,0,0.2);
+            padding: 3px 8px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Special styling for the self-test box */
+        .self-test-card {
+            border: 1px dashed #ef4444;
+            background-color: rgba(239, 68, 68, 0.05);
+            grid-column: 1 / -1; /* Spans full width */
+            padding: 25px;
+        }
+        
+        .self-test-card .topic-title {
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-top">
+            <a href="cell.html" class="back-btn">
+                <span>←</span> Back to Cell Verse
+            </a>
+            <!-- Optional: Could add a user profile icon here later -->
+        </div>
+
+        <h1>Basic Explanation</h1>
+        <div class="subtitle">Cell: Structure & Functions Module</div>
+
+        <!-- Extra Feature: Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>Module Progress</span>
+                <span>0 / 17 Topics Completed</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <!-- Topics Grid (From 1000264137.jpg Flowchart) -->
+        <div class="topic-grid">
+            
+            <a href="#topic1" class="topic-card">
+                <span class="topic-title">The Cell</span>
+                <span class="time-tag">⏱️ 2 min read</span>
+            </a>
+
+            <a href="#topic2" class="topic-card">
+                <span class="topic-title">Cell Theory</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic3" class="topic-card">
+                <span class="topic-title">Overview of Cell</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic4" class="topic-card">
+                <span class="topic-title">Prokaryotic Cell</span>
+                <span class="time-tag">⏱️ 4 min read</span>
+            </a>
+
+            <a href="#topic5" class="topic-card">
+                <span class="topic-title">Eukaryotic Cell</span>
+                <span class="time-tag">⏱️ 4 min read</span>
+            </a>
+
+            <a href="#topic6" class="topic-card">
+                <span class="topic-title">Cell Membrane</span>
+                <span class="time-tag">⏱️ 5 min read</span>
+            </a>
+
+            <a href="#topic7" class="topic-card">
+                <span class="topic-title">Cell Wall</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic8" class="topic-card">
+                <span class="topic-title">Endomembrane System</span>
+                <span class="time-tag">⏱️ 6 min read</span>
+            </a>
+
+            <a href="#topic9" class="topic-card">
+                <span class="topic-title">Mitochondria</span>
+                <span class="time-tag">⏱️ 4 min read</span>
+            </a>
+
+            <a href="#topic10" class="topic-card">
+                <span class="topic-title">Plastids</span>
+                <span class="time-tag">⏱️ 4 min read</span>
+            </a>
+
+            <a href="#topic11" class="topic-card">
+                <span class="topic-title">Ribosomes</span>
+                <span class="time-tag">⏱️ 2 min read</span>
+            </a>
+
+            <a href="#topic12" class="topic-card">
+                <span class="topic-title">Cilia & Flagella</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic13" class="topic-card">
+                <span class="topic-title">Cytoskeleton</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic14" class="topic-card">
+                <span class="topic-title">Centrosome & Centriole</span>
+                <span class="time-tag">⏱️ 3 min read</span>
+            </a>
+
+            <a href="#topic15" class="topic-card">
+                <span class="topic-title">Nucleus</span>
+                <span class="time-tag">⏱️ 5 min read</span>
+            </a>
+
+            <a href="#topic16" class="topic-card">
+                <span class="topic-title">Microbodies</span>
+                <span class="time-tag">⏱️ 2 min read</span>
+            </a>
+            
+            <a href="#topic17" class="topic-card">
+                <span class="topic-title">Summary</span>
+                <span class="time-tag">⏱️ Quick Recap</span>
+            </a>
+
+            <!-- Extracted from "Close the web Ans by own or explain by own" -->
+            <a href="#self-test" class="topic-card self-test-card">
+                <span class="topic-title">🧠 Explain it Yourself (Self-Test)</span>
+                <span class="time-tag" style="margin-top:5px; background:rgba(239,68,68,0.2); color:#fca5a5;">Close the app & practice active recall</span>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
