@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Stream Suits You? - PathNova</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #070f2b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .main-wrapper {
+            background: radial-gradient(circle at top, #1e1b4b 0%, #070f2b 60%, #020617 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; padding: 10px; }
+
+        /* Navbar - same as index.html */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; margin-bottom: 40px; flex-wrap: wrap; gap: 15px; }
+        .brand-logo { display: flex; align-items: center; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+        .brand-icon { background: #4f46e5; color: white; padding: 2px 10px; border-radius: 6px; margin-right: 8px; font-size: 16px; font-weight: 800; }
+        .nav-menu { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-link { color: #94a3b8; text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 20px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { background: rgba(255,255,255,0.1); color: #ffffff; }
+
+        .page-title { text-align: center; font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+        .page-subtitle { text-align: center; color: #94a3b8; font-size: 14px; margin-bottom: 30px; }
+
+        /* Quiz Card */
+        .quiz-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px 25px;
+        }
+
+        /* Progress bar */
+        .quiz-progress-bg { width: 100%; height: 8px; background: #151636; border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
+        .quiz-progress-fill { height: 100%; background: linear-gradient(90deg, #818cf8, #c084fc); transition: width 0.3s ease; width: 0%; }
+        .quiz-count { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+
+        .quiz-question-text { font-size: 21px; font-weight: 700; margin-bottom: 25px; line-height: 1.4; }
+
+        .quiz-option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            padding: 16px 18px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quiz-option-btn:hover { border-color: #818cf8; background: rgba(129, 140, 248, 0.1); transform: translateX(4px); }
+
+        /* Intro / Result screens */
+        .center-icon { font-size: 55px; text-align: center; margin-bottom: 15px; }
+        .center-text { text-align: center; color: #94a3b8; font-size: 14px; margin-bottom: 25px; line-height: 1.6; }
+        .primary-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(90deg, #6366f1, #818cf8);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .result-title { text-align: center; font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+        .result-desc { text-align: center; color: #94a3b8; margin-bottom: 25px; font-size: 14px; line-height: 1.6; }
+        .result-cta {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #070f2b;
+        }
+        .retake-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #94a3b8;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="container">
+
+            <!-- Navbar -->
+            <div class="navbar">
+                <div class="brand-logo"><span class="brand-icon">P</span>PathNova</div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="studysmart.html" class="nav-link">Study Smart</a>
+                    <a href="science.html" class="nav-link">Science</a>
+                    <a href="commerce.html" class="nav-link">Commerce</a>
+                    <a href="arts.html" class="nav-link">Arts</a>
+                    <a href="howtostudy.html" class="nav-link">How to Study</a>
+                    <a href="class10.html" class="nav-link">Class 10</a>
+                </div>
+            </div>
+
+            <h1 class="page-title">Which Stream Suits You?</h1>
+            <p class="page-subtitle">Answer 6 quick questions — takes less than 2 minutes.</p>
+
+            <div class="quiz-card" id="quiz-container">
+                <!-- JavaScript yahan content daalega -->
+            </div>
+
+        </div>
+    </div>
+
+<script>
+/* ============================================================
+   🟢 SAFE ZONE — QUESTIONS DATA
+   Naya sawal add karna ho to bas neeche jaisa ek aur block
+   copy-paste karo aur { } ke andar apna text badal do.
+   Har option mein "stream" value sirf teen mein se ek hogi:
+   "science", "commerce", ya "arts"
+   ============================================================ */
+
+const quizQuestions = [
+  {
+    question: "Which subject excites you the most?",
+    options: [
+      { text: "Physics, Chemistry equations and experiments", stream: "science" },
+      { text: "Numbers, money and business ideas", stream: "commerce" },
+      { text: "History, debates and understanding people", stream: "arts" }
+    ]
+  },
+  {
+    question: "What kind of problems do you enjoy solving?",
+    options: [
+      { text: "Logical and mathematical puzzles", stream: "science" },
+      { text: "Real-world business and money scenarios", stream: "commerce" },
+      { text: "Social issues and human behavior", stream: "arts" }
+    ]
+  },
+  {
+    question: "How do you prefer to study?",
+    options: [
+      { text: "Step-by-step formulas and derivations", stream: "science" },
+      { text: "Case studies and practical examples", stream: "commerce" },
+      { text: "Reading, writing and discussions", stream: "arts" }
+    ]
+  },
+  {
+    question: "What excites you about your future career?",
+    options: [
+      { text: "Building things, research, technology", stream: "science" },
+      { text: "Starting a business, managing money", stream: "commerce" },
+      { text: "Making a difference, storytelling, public roles", stream: "arts" }
+    ]
+  },
+  {
+    question: "Pick a weekend activity you'd genuinely enjoy:",
+    options: [
+      { text: "A science documentary or coding tutorial", stream: "science" },
+      { text: "Reading about the stock market or a business podcast", stream: "commerce" },
+      { text: "Reading a novel or a history documentary", stream: "arts" }
+    ]
+  },
+  {
+    question: "How do you handle long study hours?",
+    options: [
+      { text: "I can grind for hours if I genuinely like the subject", stream: "science" },
+      { text: "I like a mix of theory and real application", stream: "commerce" },
+      { text: "I prefer deep reading over memorizing formulas", stream: "arts" }
+    ]
+  }
+  // ⬆️ Naya question add karna ho to yahan ek comma lagao
+  // aur neeche ek naya { question: "...", options: [...] } block paste karo
+];
+
+const streamInfo = {
+  science: {
+    name: "Science (PCM / PCB)",
+    emoji: "🔬",
+    color: "#38bdf8",
+    desc: "You think in logic and love understanding how things work. Science rewards curiosity and long-term consistency.",
+    link: "science.html"
+  },
+  commerce: {
+    name: "Commerce",
+    emoji: "💼",
+    color: "#34d399",
+    desc: "You're drawn to how money, markets and organizations work. Commerce fits people who think practically and like real-world application.",
+    link: "commerce.html"
+  },
+  arts: {
+    name: "Arts & Humanities",
+    emoji: "🎨",
+    color: "#c084fc",
+    desc: "You're curious about people, society and ideas. Arts rewards reading, writing, and clear thinking.",
+    link: "arts.html"
+  }
+};
+
+/* ============================================================
+   ⚠️ MAT CHHEDO — YE ENGINE HAI (yahan se neeche edit mat karna)
+   ============================================================ */
+
+let currentQuestion = 0;
+let scores = { science: 0, commerce: 0, arts: 0 };
+const quizContainer = document.getElementById("quiz-container");
+
+function renderIntro() {
+    quizContainer.innerHTML = `
+        <div class="center-icon">🧭</div>
+        <p class="center-text">Not sure whether Science, Commerce, or Arts is right for you? This quick quiz gives you an honest starting point — not a final decision.</p>
+        <button class="primary-btn" onclick="startQuiz()">Start Quiz →</button>
+    `;
+}
+
+function startQuiz() {
+    currentQuestion = 0;
+    scores = { science: 0, commerce: 0, arts: 0 };
+    renderQuestion();
+}
+
+function renderQuestion() {
+    const q = quizQuestions[currentQuestion];
+    const progressPercent = (currentQuestion / quizQuestions.length) * 100;
+
+    let optionsHTML = "";
+    q.options.forEach((opt, index) => {
+        optionsHTML += `<button class="quiz-option-btn" onclick="answerQuestion('${opt.stream}')">${opt.text}</button>`;
+    });
+
+    quizContainer.innerHTML = `
+        <div class="quiz-progress-bg"><div class="quiz-progress-fill" style="width:${progressPercent}%"></div></div>
+        <div class="quiz-count">Question ${currentQuestion + 1} of ${quizQuestions.length}</div>
+        <div class="quiz-question-text">${q.question}</div>
+        ${optionsHTML}
+    `;
+}
+
+function answerQuestion(stream) {
+    scores[stream] = scores[stream] + 1;
+    currentQuestion = currentQuestion + 1;
+
+    if (currentQuestion < quizQuestions.length) {
+        renderQuestion();
+    } else {
+        renderResult();
+    }
+}
+
+function renderResult() {
+    const entries = Object.entries(scores);
+    const maxScore = Math.max(entries[0][1], entries[1][1], entries[2][1]);
+    const topStreams = entries.filter(e => e[1] === maxScore).map(e => e[0]);
+
+    if (topStreams.length === 1) {
+        const info = streamInfo[topStreams[0]];
+        quizContainer.innerHTML = `
+            <div class="center-icon">${info.emoji}</div>
+            <div class="result-title">${info.name}</div>
+            <div class="result-desc">${info.desc}</div>
+            <a href="${info.link}" class="result-cta" style="background:${info.color};">Explore ${info.name} →</a>
+            <button class="retake-btn" onclick="renderIntro()">Retake Quiz</button>
+        `;
+    } else {
+        let namesText = topStreams.map(s => streamInfo[s].name).join(" and ");
+        let linksHTML = "";
+        topStreams.forEach(s => {
+            const info = streamInfo[s];
+            linksHTML += `<a href="${info.link}" class="result-cta" style="background:${info.color};">Explore ${info.name} →</a>`;
+        });
+        quizContainer.innerHTML = `
+            <div class="center-icon">🤔</div>
+            <div class="result-title">You show strong signs for both!</div>
+            <div class="result-desc">Your answers were split between ${namesText}. That's normal — read both pages before deciding.</div>
+            ${linksHTML}
+            <button class="retake-btn" onclick="renderIntro()">Retake Quiz</button>
+        `;
+    }
+}
+
+/* Page load hote hi intro screen dikhao */
+renderIntro();
+</script>
+
+</body>
+</html>
